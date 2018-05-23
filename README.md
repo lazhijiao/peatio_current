@@ -1,7 +1,6 @@
 An open-source crypto currency exchange
 (UPGRADING NOW... NEW REPOSITORY WILL BE SOON!!)
 =====================================
-
 Peatio is a free and open-source crypto currency exchange implementation with the Rails framework and other cutting-edge technology.
 
 This branch is Apollo-IT's branch. and has USD, BTC, ETH, LTC now.
