@@ -1,0 +1,27 @@
+- id: 100
+  key: bank
+  currency: usd
+  bank_accounts:
+    -
+      bank: 'Caixa Econômica Federal'
+      branch: '0448'
+      holder: 'Demo Serviços Digitais'
+      account: '37027-9'
+
+- id: 200
+  key: satoshi
+  currency: btc
+  min_confirm: 1
+  max_confirm: 6
+
+- id: 300
+  key: litecoin
+  currency: ltc
+  min_confirm: 1
+  max_confirm: 6
+
+- id: 400
+  key: ether
+  currency: eth
+  min_confirm: 1
+  max_confirm: 6

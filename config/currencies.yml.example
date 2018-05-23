@@ -1,0 +1,55 @@
+- id: 1
+  key: brazilianreal
+  code: usd
+  symbol: "B$"
+  coin: false
+  precision: 2
+  assets:
+    accounts:
+      -
+        bank: 'Caixa Econômica Federal'
+        address: '37027-9'
+        password: '111111'
+        tel: '5551991471441'
+- id: 2
+  key: satoshi
+  code: btc
+  symbol: "฿"
+  coin: true
+  precision: 4
+  quick_withdraw_max: 0
+  rpc: http://username:password@127.0.0.1:18332
+  blockchain: https://blockchain.info/tx/#{txid}
+  address_url: https://blockchain.info/address/#{address}
+  assets:
+    accounts:
+      -
+        address: 1HjfnJpQmANtuW7yr1ggeDfyfe1kDK7rm3
+- id: 3
+  key: ether
+  code: eth
+  symbol: "Ξ"
+  coin: true
+  precision: 4
+  quick_withdraw_max: 0
+  rpc: http://Your_eth_server_ip
+  blockchain: https://etherscan.io/tx/#{txid}
+  address_url: https://etherscan.io/address/#{address}
+  assets:
+    accounts:
+      -
+        address: 0x4bA2474e063Aec44e23F2Bf7Fb9e4e2878dBaB44
+- id: 4
+  key: litecoin
+  code: ltc
+  symbol: "Ł"
+  coin: true
+  precision: 4
+  quick_withdraw_max: 0
+  rpc: http://douglasdallabrida2786:BvGV9fAwbSLuMr28QaR7BJOD@185.127.17.125:9332
+  blockchain: https://live.blockcypher.com/ltc/tx/#{txid}
+  address_url: https://live.blockcypher.com/ltc/address/#{address}
+  assets:
+    accounts:
+      -
+        address: MWUuWMjupjhmjVvxnUMWqiLBE8RtCtsoQR

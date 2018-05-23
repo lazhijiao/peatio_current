@@ -1,0 +1,24 @@
+doctype html
+html lang="en"
+  head
+    meta charset="utf-8"
+    meta http-equiv="X-UA-Compatible" content="IE=edge"
+    meta name="viewport" content="width=device-width, initial-scale=1"
+    link rel="shortcut icon" href="/favicon.png"
+    link href="https://fonts.googleapis.com/css?family=Raleway:500,600,700,800,900,400,300" rel="stylesheet" type="text/css"
+    link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900,300italic,400italic" rel="stylesheet" type="text/css"
+
+    = include_gon
+    = stylesheet_link_tag "application", :media => "all"
+    = javascript_include_tag "application"
+    = javascript_include_tag "welcome"
+    = javascript_include_tag "smoothscroll"
+    = render 'shared/html5'
+    = render 'shared/meta'
+    /= csrf_meta_tags
+  body id='#{body_id}' data-lang="#{locale_name}"
+    #wrap
+      = render 'shared/alert'
+      = yield
+      #push
+    = render 'shared/footer'

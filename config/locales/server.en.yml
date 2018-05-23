@@ -1,0 +1,3812 @@
+en:
+  activerecord:
+    models:
+      api_tokens: API Token
+      trade: Trades
+      order: Orders
+      order_bid: BID
+      order_ask: ASK
+      document: Document
+      withdraw: Withdraw
+      deposit: Deposit
+      payment_transaction: Payment
+      id_document: ID Document
+      statistic/orders_grid: Orders Stat
+      statistic/trades_grid: Trading Stat
+      statistic/members_grid: Members Stat
+      statistic/deposits_grid: Deposits Stat
+      statistic/withdraws_grid: Withdraws Stat
+      admin/deposits_grid: Deposits
+      admin/withdraws_grid: Withdraws
+      deposits/bank: Deposit Bank
+      withdraws/bank: Withdraw Bank
+      withdraws/satoshi: Withdraw
+    attributes:
+      api_token:
+        access_key: Access Key
+        trusted_ip_list: IP Whitelist
+        ip_whitelist: IP Whitelist
+        label: Label
+        actions: Actions
+      identity:
+        email: Email
+        password: New Password
+        password_confirmation: Confirm Password
+      document:
+        zh_cn_body: Chinese content
+        zh_cn_title: Chinese title
+        zh_cn_desc: Chinese description
+        zh_cn_keywords: Chinese keyword
+        en_body: English content
+        en_title: English title
+        en_desc: English description
+        en_keywords: English keyword
+        key: Key
+        is_auth: Is Auth
+      fund_source:
+        address: Address
+        category: Category
+        label: Label
+      account:
+        currency: Currency
+        currency_text: Currency
+        balance_and_locked: Balance / Locked
+        balance: Balance
+        locked: Frozen
+      deposit:
+        state: State
+        tx_id: TxID
+        member_id: Member ID
+        created_at: Submitted at
+        address: Address
+        amount: Amount
+        done_at: Completed at
+        sn: SN
+      withdraw:
+        id: ID
+        sn: SN
+        withdraw_id: ID
+        created_at: Created At
+        done_at: Done At
+        sum: Sum
+        fee: Fee
+        currency: Currency
+        amount: Amount
+        address: Address
+        state: Status
+        state_text: Status
+        tx_id: TxID
+        fund_source_id: Withdraw address
+        detail: Detail
+      account_version:
+        id: ID
+        locked: Forzen
+        amount: Amount
+        balance: Balance
+        reason: Reason
+        reason_text: Reason
+        modifiable_id: LINK ID
+        modifiable_type: LINK
+        created_at: Created At
+        in: Income
+        out: Expenses
+        fee: Fee
+      token/reset_password:
+        email: Sign in email
+        member: Member
+      trade:
+        bid: Bid
+        ask: Ask
+        fee: Fee
+        price: Strike Price
+        volume: Strike Volume
+        category: Bid/Ask
+        order: Order
+      order:
+        bid: Bid
+        ask: Ask
+        price: Price
+        total: Total
+        volume: Volume
+        origin_volume: Volume
+        sum: Sum
+        category: Bid/Ask
+        kind: Kind
+        at: At
+        id: ID
+        state: State
+        operation: Operation
+      payment_transaction:
+        at: Date Time
+        txid: Transaction ID
+        amount: Amount
+        confirmations: Confirmations
+        state: State
+        state_done: Done
+        state_wait: Wait
+      member:
+        id: ID
+        name: Real Name
+        display_name: Display Name
+        email: Email
+        created_at: Register At
+        sn: SN
+        id_document_number: Id Document Number
+        tag_list: Tags
+        activated: Activated
+        activated?: "Activated?"
+        id_document_verified?: "Id Document Verified?"
+        two_factor_activated?: "Tow Factor Activated?"
+        phone_number: Phone Number
+      two_factor/sms:
+        country: Country
+        phone_number: Phone Number
+        otp: Verify Code
+      withdraws/bank:
+        id: ID
+        member_name: Member
+        currency_obj_key_text: Currency
+        state_and_actions: State/Action
+        fund_source: Bank
+        fund_extra: Bank
+        fund_extra_text: Bank
+        fund_uid: Bank Account
+        sum: Amount
+        fee: Fee
+        amount: Amount
+        remark: Remark
+        created_at: Created At
+      deposits/bank:
+        created_at: Created At
+        holder: Holder
+        fund_extra: Sender Bank
+        fund_uid: Sender Account
+        member_sn: Member SN
+        member_name: Sender Name
+        amount: Amount
+        sn: SN
+        state_and_action: State/Action
+        label: Label
+        fund_source: Fund Source
+      deposits/satoshi:
+        created_at: Created At
+        txid: Transaction ID
+        amount: Amount
+        confirmations: Confirmation
+        aasm_state_text: State
+      withdraws/satoshi:
+        id: ID
+        member_name: Account
+        currency_obj_key_text: Currency
+        state_and_actions: State/Action
+        fund_extra_text: Withdraw Label
+        fund_extrat: Withdraw Label
+        fund_source: Bank
+        fund_uid: Account
+        created_at: Created At
+        sum: Amount
+        amount: Amount
+        remark: Remark
+        fee: Fee
+    errors:
+      models:
+        order_bid:
+          attributes:
+            sum:
+              expensive: Expensive Account
+            price:
+              range: Invalid Price Range
+        order_ask:
+          attributes:
+            origin_volume:
+              expensive: Expensive Account
+            price:
+              range: Invalid Price Range
+        account:
+          attributes:
+            balance:
+              less: Blance Less
+        identity:
+          attributes:
+            email:
+              invalid: Invalid Email
+            password:
+              invalid: Invalid Password
+            password_confirmation:
+              confirmation: Inconsistent with the new password you enter, please re-enter.
+        token/reset_password:
+          attributes:
+            base:
+              too_soon: Visit too soon, please try it later.
+            email:
+              not-member: Invalid Email
+              match: Invalid Sign in Email
+            password:
+              invalid: Invalid Password
+            member:
+              blank: Not exist!
+        activation:
+          attributes:
+            base:
+              too_soon: An activation email was sent to your email address less than
+                5 minutes ago.
+        fund_source:
+          attributes:
+            address:
+              satoshi_ismine: Used Address
+              satoshi_invalid: Invalid Address
+        withdraw:
+          account_balance_is_poor: Account balance is insufficient
+          attributes:
+            password:
+              match: invalid
+            amount:
+              poor: insufficient
+              bank_min: Less 5000.00
+        withdraws/satoshi:
+          attributes:
+            fund_uid:
+              blank: Please enter your withdrawal address
+              invalid: Invalid withdrawals address, please review.
+              ismine: Please use a new address.
+        two_factor:
+          attributes:
+            otp:
+              invalid: Wrong Password!Please re-enter.
+        application:
+          attributes:
+            redirect_uri:
+              fragment_present: cannot contain a fragment.
+              invalid_uri: must be a valid URI.
+              relative_uri: must be an absolute URI.
+      messages:
+        invalid_email: Invalid Email Address
+        undef: unknown reason
+        less: balance less
+        verify: verify error
+        strength: is invalid password strength
+        password: Please enter a password at least 6 characters and it's better to
+          contain uppercase and lowercase letters and numbers.
+        orders:
+          price: limit price %{l} ~ %{h}
+          sum: limit sum price %{l} ~ %{h}
+          precision: minimum precision %{p}
+  banks:
+    bras: Banco do Brasil
+    brgs: Banrisul
+    bbde: Bradesco
+    cefx: Caixa Econômica Federal
+    itau: Itaú
+    abna: Santander
+  market:
+    currency:
+      btc: BTC
+      cny: CNY
+      usd: USD
+      eth: ETH
+      bch: BCH
+      ltc: LTC
+      dash: DASH
+      xrp: XRP
+      etc: ETC
+      ubq: UBQ
+      xem: XEM
+      doge: DOGE
+      flo: FLO
+      geo: GEO
+      blk: BLK
+      bela: BELA
+      lbc: LBC
+      neos: NEOS
+      nxs: NXS
+      nmc: NMC
+      sys: SYS
+      pink: PINK
+      ppc: PPC
+      pot: POT
+      vtc: VTC
+      xbc: XBC
+      xpm: XPM
+      rads: RADS
+      ric: RIC
+      dgb: DGB
+      dfs: DFS
+      btcd: BTCD
+      via: VIA
+  currency:
+    satoshi:
+      key: BTC
+      code: BTC
+      name: Bitcoin
+      format: '0,0.0000'
+    bitsharesx:
+      key: BTS
+      code: BTSX
+      name: BitsharesX
+      format: '0,0.0000'
+    renminbi:
+      key: CNY
+      code: CNY
+      name: Chinese Yuan
+      format: '0,0.00'
+    brazilianreal:
+      key: USD
+      code: USD
+      name: Brazilian Real
+      format: '0,0.00'
+    ether:
+      key: ETH
+      code: ETH
+      name: Ethereum
+      format: '0,0.0000'
+    litecoin:
+      key: LTC
+      code: LTC
+      name: Litecoin
+      format: '0,0.0000'
+    bitcoincash:
+      key: BCH
+      code: BCH
+      name: Bitcoincash
+      format: '0,0.0000'
+    dashcoin:
+      key: DASH
+      code: DASH
+      name: Dashcoin
+      format: '0,0.0000'
+    ripple:
+      key: XRP
+      code: XRP
+      name: Ripple
+      format: '0,0.0000'
+    etherclassic:
+      key: ETC
+      code: ETC
+      name: Ethereumclassic
+      format: '0,0.0000'
+    ubiq:
+      key: UBQ
+      code: UBQ
+      name: Ubiq
+      format: '0,0.0000'
+    nem:
+      key: NEM
+      code: XEM
+      name: NEM
+      format: '0,0.0000'
+    dogecoin:
+      key: DOGE
+      code: DOGE
+      name: Dogecoin
+      format: '0,0.00'
+    florincoin:
+      key: FLO
+      code: FLO
+      name: Florincoin
+      format: '0,0.00'
+    geocoin:
+      key: GEO
+      code: GEO
+      name: Geocoin
+      format: '0,0.0000'
+    blackcoin:
+      key: BLK
+      code: BLK
+      name: Blackcoin
+      format: '0,0.0000'
+    belacoin:
+      key: BELA
+      code: BELA
+      name: Belacoin
+      format: '0,0.0000'
+    lbrycrd:
+      key: LBC
+      code: LBC
+      name: Lbrycrd
+      format: '0,0.0000'
+    neoscoin:
+      key: NEOS
+      code: NEOS
+      name: Neoscoin
+      format: '0,0.0000'
+    nexuscoin:
+      key: NXS
+      code: NXS
+      name: Nexus
+      format: '0,0.0000'
+    namecoin:
+      key: NMC
+      code: NMC
+      name: Namecoin
+      format: '0,0.0000'
+    syscoin:
+      key: SYS
+      code: SYS
+      name: Syscoin
+      format: '0,0.00'
+    pinkcoin:
+      key: PINK
+      code: PINK
+      name: Pinkcoin
+      format: '0,0.00'
+    peercoin:
+      key: PPC
+      code: PPC
+      name: Peercoin
+      format: '0,0.0000'
+    potcoin:
+      key: POT
+      code: POT
+      name: Potcoin
+      format: '0,0.0000'
+    vertcoin:
+      key: VTC
+      code: VTC
+      name: Vertcoin
+      format: '0,0.0000'
+    bitcoinpl:
+      key: XBC
+      code: XBC
+      name: Bitcoinplus
+      format: '0,0.0000'
+    primecoin:
+      key: XPM
+      code: XPM
+      name: Primecoin
+      format: '0,0.0000'
+    radium:
+      key: RADS
+      code: RADS
+      name: Radium
+      format: '0,0.0000'
+    riecoin:
+      key: RIC
+      code: RIC
+      name: Riecoin
+      format: '0,0.0000'
+    digibyte:
+      key: DGB
+      code: DGB
+      name: Digibyte
+      format: '0,0.0000'
+    dfscoin:
+      key: DFS
+      code: DFS
+      name: Dfscoin
+      format: '0,0.0000'
+    bitcoindark:
+      key: BTCD
+      code: BTCD
+      name: Bitcoindark
+      format: '0,0.0000'
+    viacoin:
+      key: VIA
+      code: VIA
+      name: Viacoin
+      format: '0,0.0000'
+  datagrid:
+    empty: no data found
+    filters:
+      date:
+        range_separator: " to "
+      datetime:
+        range_separator: " to "
+    form:
+      submit: Search
+    admin_deposits_grid:
+      columns:
+        sn: SN
+        created_at: At
+        channel_key_text: Channel
+        fund_extra_text: Extra
+        fund_uid: UID
+        txid: TXID
+        amount: Amount
+        fee: Fee
+        currency_text: Currency
+        aasm_state_text: State
+        member_name: Member
+    bank_deposits_grid:
+      columns:
+        sn: SN
+        created_at: At
+        channel_key_text: Category
+        fund_extra_text: Bank
+        fund_uid: Account
+        amount: Amount
+        fee: Fee
+        aasm_state_text: State
+    coin_deposits_grid:
+      columns:
+        sn: SN
+        txid: Transaction ID
+        created_at: At
+        amount: Amount
+        aasm_state_text: State
+        confirmations: Confirm
+    withdraws_grid:
+      columns:
+        sn: SN
+        name: Name
+        currency_text: Currency
+        amount: Amount
+        fee: Fee
+        created_at: Created at
+        done_at: Completed at
+        state_text: State
+    members_grid:
+      columns:
+        sn: Serial number
+        email: Email
+        created_at: Created at
+        actions: Actions
+    account_versions_grid:
+      columns:
+        created_at: Created at
+        currency_text: Currency
+        balance: Balance
+        in: In
+        out: Out
+        amount: Amount
+        reason_text: Reason
+        modifiable_type: Link
+        fee: Fee
+      filters:
+        reason: Reason
+        currency: Currency
+    statistic_members_grid:
+      columns:
+        sn: Serial number
+        id: ID
+        email: Email
+        created_at: Created at
+        activated: Active
+        detail: Detail
+        action: Action
+      filters:
+        sn: Serial number
+        activated: Active
+        created_at: Created at
+        email: Email
+    statistic_orders_grid:
+      columns:
+        id: Serial number
+        price: Price
+        volume: Volume
+        created_at: Created at
+        state_text: State
+        member_id: Member
+      filters:
+        state: State
+        currency: Currency
+        created_at: Created at
+        type: Ask/Bid
+    statistic_trades_grid:
+      columns:
+        id: ID
+        price: Price
+        volume: Volume
+        strike_amount: Amount
+        created_at: Created at
+      filters:
+        currency: Currency
+        created_at: Created at
+    statistic_deposits_grid:
+      columns:
+        member: Member
+        tx_id: TxID
+        amount: Amount
+        currency: Currency
+        created_at: Created at
+        state_text: State
+      filters:
+        currency: Currency
+        state: State
+        created_at: Created at
+    statistic_withdraws_grid:
+      columns:
+        member: Member
+        address: Adress
+        amount: Amount
+        currency: Currency
+        created_at: Created at
+        state_text: State
+      filters:
+        state: State
+        created_at: Created at
+  deposit_channel:
+    bank:
+      key: Bank transfer
+      title: Bank transfer
+      intro: Bank transfer deposits, recommend for large recharge
+      latency: 10 minutes
+      transfer: Manual
+      go: Deposit
+    satoshi:
+      key: Bitcoin
+      title: Bitcoin Deposits
+      intro: Deposit bitcoin from your own wallet address to Demo account
+      latency: 1 confirmation
+      transfer: Manual
+      go: Deposit
+    ether:
+      key: Ethereum
+      title: Ethereum Deposits
+      intro: Deposit ethereum from your own wallet address to Demo account
+      latency: 1 confirmation
+      transfer: Manual
+      go: Deposit
+    litecoin:
+      key: Litecoin
+      title: Litecoin Deposits
+      intro: Deposit litecoin from your own wallet address to Demo account
+      latency: 1 confirmation
+      transfer: Manual
+      go: Deposit
+    bitcoincash:
+      key: Bitcoincash
+      title: Bitcoincash Deposits
+      intro: Deposit bitcoincash from your own wallet address to Demo account
+      latency: 1 confirmation
+      transfer: Manual
+      go: Deposit
+    dashcoin:
+      key: Dashcoin
+      title: Dashcoin Deposits
+      intro: Deposit dashcoin from your own wallet address to Demo account
+      latency: 1 confirmation
+      transfer: Manual
+      go: Deposit
+    ripple:
+      key: Ripple
+      title: Ripple Deposits
+      intro: Deposit ripple from your own wallet address to Demo account
+      latency: 1 confirmation
+      transfer: Manual
+      go: Deposit
+    etherclassic:
+      key: Etherclassic
+      title: Ethereumclassic Deposits
+      intro: Deposit ethereumclassic from your own wallet address to Demo account
+      latency: 1 confirmation
+      transfer: Manual
+      go: Deposit
+    ubiq:
+      key: Ubiq
+      title: Ubiq Deposits
+      intro: Deposit ubiq from your own wallet address to Demo account
+      latency: 1 confirmation
+      transfer: Manual
+      go: Deposit
+    nem:
+      key: Block Chain
+      title: NEM Deposits
+      intro: Deposit NEM from your own wallet address to NEM account
+      latency: 1 confirmation
+      transfer: Manual
+      go: Deposit
+    dogecoin:
+      key: Dogecoin
+      title: Dogecoin Deposits
+      intro: Deposit dogecoin from your own wallet address to Demo account
+      latency: 1 confirmation
+      transfer: Manual
+      go: Deposit
+    florincoin:
+      key: Florincoin
+      title: Florincoin Deposits
+      intro: Deposit florincoin from your own wallet address to Demo account
+      latency: 1 confirmation
+      transfer: Manual
+      go: Deposit
+    geocoin:
+      key: Geocoin
+      title: Geocoin Deposits
+      intro: Deposit geocoin from your own wallet address to Demo account
+      latency: 1 confirmation
+      transfer: Manual
+      go: Deposit
+    blackcoin:
+      key: Blackcoin
+      title: Blackcoin Deposits
+      intro: Deposit blackcoin from your own wallet address to Demo account
+      latency: 1 confirmation
+      transfer: Manual
+      go: Deposit
+    belacoin:
+      key: Belacoin
+      title: Belacoin Deposits
+      intro: Deposit belacoin from your own wallet address to Demo account
+      latency: 1 confirmation
+      transfer: Manual
+      go: Deposit
+    lbrycrd:
+      key: Lbrycrd
+      title: Lbrycrd Deposits
+      intro: Deposit lbrycrd from your own wallet address to Demo account
+      latency: 1 confirmation
+      transfer: Manual
+      go: Deposit
+    neoscoin:
+      key: Neoscoin
+      title: Neoscoin Deposits
+      intro: Deposit neoscoin from your own wallet address to Demo account
+      latency: 1 confirmation
+      transfer: Manual
+      go: Deposit
+    nexuscoin:
+      key: Nexuscoin
+      title: Nexus Deposits
+      intro: Deposit nexus from your own wallet address to Demo account
+      latency: 1 confirmation
+      transfer: Manual
+      go: Deposit
+    namecoin:
+      key: Namecoin
+      title: Namecoin Deposits
+      intro: Deposit namecoin from your own wallet address to Demo account
+      latency: 1 confirmation
+      transfer: Manual
+      go: Deposit
+    syscoin:
+      key: Syscoin
+      title: Syscoin Deposits
+      intro: Deposit syscoin from your own wallet address to Demo account
+      latency: 1 confirmation
+      transfer: Manual
+      go: Deposit
+    pinkcoin:
+      key: Pinkcoin
+      title: Pinkcoin Deposits
+      intro: Deposit pinkcoin from your own wallet address to Demo account
+      latency: 1 confirmation
+      transfer: Manual
+      go: Deposit
+    peercoin:
+      key: Peercoin
+      title: Peercoin Deposits
+      intro: Deposit peercoin from your own wallet address to Demo account
+      latency: 1 confirmation
+      transfer: Manual
+      go: Deposit
+    potcoin:
+      key: Potcoin
+      title: Potcoin Deposits
+      intro: Deposit potcoin from your own wallet address to Demo account
+      latency: 1 confirmation
+      transfer: Manual
+      go: Deposit
+    vertcoin:
+      key: Vertcoin
+      title: Vertcoin Deposits
+      intro: Deposit vertcoin from your own wallet address to Demo account
+      latency: 1 confirmation
+      transfer: Manual
+      go: Deposit
+    bitcoinpl:
+      key: Bitcoinpl
+      title: Bitcoinplus Deposits
+      intro: Deposit bitcoinplus from your own wallet address to Demo account
+      latency: 1 confirmation
+      transfer: Manual
+      go: Deposit
+    primecoin:
+      key: Primecoin
+      title: Primecoin Deposits
+      intro: Deposit primecoin from your own wallet address to Demo account
+      latency: 1 confirmation
+      transfer: Manual
+      go: Deposit
+    radium:
+      key: Radium
+      title: Radium Deposits
+      intro: Deposit radium from your own wallet address to Demo account
+      latency: 1 confirmation
+      transfer: Manual
+      go: Deposit
+    riecoin:
+      key: Riecoin
+      title: Riecoin Deposits
+      intro: Deposit riecoin from your own wallet address to Demo account
+      latency: 1 confirmation
+      transfer: Manual
+      go: Deposit
+    digibyte:
+      key: Digibyte
+      title: Digibyte Deposits
+      intro: Deposit digibyte from your own wallet address to Demo account
+      latency: 1 confirmation
+      transfer: Manual
+      go: Deposit
+    dfscoin:
+      key: Dfscoin
+      title: Dfscoin Deposits
+      intro: Deposit dfscoin from your own wallet address to Demo account
+      latency: 1 confirmation
+      transfer: Manual
+      go: Deposit
+    bitcoindark:
+      key: Bitcoindark
+      title: Bitcoindark Deposits
+      intro: Deposit bitcoindark from your own wallet address to Demo account
+      latency: 1 confirmation
+      transfer: Manual
+      go: Deposit
+    viacoin:
+      key: Viacoin
+      title: Viacoin Deposits
+      intro: Deposit viacoin from your own wallet address to Demo account
+      latency: 1 confirmation
+      transfer: Manual
+      go: Deposit
+  deposits/bank:
+    aasm_state:
+      submitting: Submitting
+      cancelled: Cancelled
+      submitted: Submitted
+      accepted: Accepted
+      rejected: Rejected
+      checked: Checked
+      warning: Warning
+  private:
+    deposits:
+      satoshis:
+        gen_address:
+          require_transaction: it can't generate new address if it hasn't been used.
+      dashcoins:
+        gen_address:
+          require_transaction: it can't generate new address if it hasn't been used.
+      ethers:
+        gen_address:
+          require_transaction: it can't generate new address if it hasn't been used.
+      bitcoincashs:
+        gen_address:
+          require_transaction: it can't generate new address if it hasn't been used.
+      litecoins:
+        gen_address:
+          require_transaction: it can't generate new address if it hasn't been used.
+      ripples:
+        gen_address:
+          require_transaction: it can't generate new address if it hasn't been used.
+      etherclassics:
+        gen_address:
+          require_transaction: it can't generate new address if it hasn't been used.
+      ubiqs:
+        gen_address:
+          require_transaction: it can't generate new address if it hasn't been used.
+      nems:
+        gen_address:
+          require_transaction: it can't generate new address if it hasn't been used.
+      dogecoins:
+        gen_address:
+          require_transaction: it can't generate new address if it hasn't been used.
+      florincoins:
+        gen_address:
+          require_transaction: it can't generate new address if it hasn't been used.
+      geocoins:
+        gen_address:
+          require_transaction: it can't generate new address if it hasn't been used.
+      blackcoins:
+        gen_address:
+          require_transaction: it can't generate new address if it hasn't been used.
+      belacoins:
+        gen_address:
+          require_transaction: it can't generate new address if it hasn't been used.
+      lbrycrds:
+        gen_address:
+          require_transaction: it can't generate new address if it hasn't been used.
+      neoscoins:
+        gen_address:
+          require_transaction: it can't generate new address if it hasn't been used.
+      nexuscoins:
+        gen_address:
+          require_transaction: it can't generate new address if it hasn't been used.
+      namecoins:
+        gen_address:
+          require_transaction: it can't generate new address if it hasn't been used.
+      syscoins:
+        gen_address:
+          require_transaction: it can't generate new address if it hasn't been used.
+      pinkcoins:
+        gen_address:
+          require_transaction: it can't generate new address if it hasn't been used.
+      peercoins:
+        gen_address:
+          require_transaction: it can't generate new address if it hasn't been used.
+      potcoins:
+        gen_address:
+          require_transaction: it can't generate new address if it hasn't been used.
+      vertcoins:
+        gen_address:
+          require_transaction: it can't generate new address if it hasn't been used.
+      bitcoinpls:
+        gen_address:
+          require_transaction: it can't generate new address if it hasn't been used.
+      primecoins:
+        gen_address:
+          require_transaction: it can't generate new address if it hasn't been used.
+      radiums:
+        gen_address:
+          require_transaction: it can't generate new address if it hasn't been used.
+      riecoins:
+        gen_address:
+          require_transaction: it can't generate new address if it hasn't been used.
+      digibytes:
+        gen_address:
+          require_transaction: it can't generate new address if it hasn't been used.
+      dfscoins:
+        gen_address:
+          require_transaction: it can't generate new address if it hasn't been used.
+      bitcoindarks:
+        gen_address:
+          require_transaction: it can't generate new address if it hasn't been used.
+      viacoins:
+        gen_address:
+          require_transaction: it can't generate new address if it hasn't been used.
+      banks:
+        destroy:
+          notice: Revocation request is successful.
+        create:
+          notice: Recharge request successfully submitted. Use the info below to complete the bank transfer.
+          submit: Submit
+        new:
+          fund_source: Select Fund Source
+          manage_fund_source: Manage Fund Source
+          submit: Submit
+        edit:
+          bank: Receive Bank Name
+          branch: Receive Bank Branch
+          hodler: Receive holder
+          account: Receive Account
+    history:
+      transaction:
+        Deposit: Deposit
+        Withdraw: Withdraw
+      account:
+        currency: Currency
+        buy: Buy
+        sell: Sell
+        filter_by_type: Filter by type
+        account_history: Account History
+        type: type
+        timestamp: date and time
+        fee: fee
+        currency: Currency
+        amount: Amount
+        txid: Txid
+      orders:
+        order_history: Order History
+        id: ID
+        type: Type
+        state: State
+        market: Market
+        price: Price
+        volume: Volume
+        average_price: Avg. Price
+        fullfilled_volume: Fullfilled
+        timestamp: Created At
+      order:
+        ask: Sell
+        bid: Buy
+        wait: Open
+        cancel: Cancelled
+        done: Done
+      trades:
+        trade_history: Trade History
+        side: Side
+        created_at: Time
+        base_currency: Base Currency
+        base_amount: Base Amount
+        quote_currency: Quote Currency
+        quote_amount: Quote Amount
+        price: Price
+      trade:
+        sell: Sell
+        buy: Buy
+    trade:
+      trades:
+        orders:
+          title: Orders
+        trades:
+          title: Trades
+        charges:
+          title: Charges
+      orders:
+        index:
+          done: Done
+          cancel: Cancel
+          confirm: 'Are you sure cancel order #%{id}?'
+        destroy:
+          'true': "#%{id} Cancel Order Successful"
+          'false': "#%{id} Cancel Order Reject"
+    withdraws:
+      update:
+        request_accepted: Withdraw request accepted.
+      destroy:
+        request_canceled: Withdraw request canceled
+      index:
+        fee: Fee
+        total: Total
+        withdraw_history: Withdrawal History
+      create:
+        two_factors_error: Two factor authentication failed.
+      banks:
+        update:
+          notice: Bank Transfer withdrawal application has been submitted, we will
+            process it as soon as possible
+          alert_two_factor: Two-Factor Authentication error
+        destroy:
+          notice: Bank Transfer withdraw has been cancelled, frozen amount has been
+            returned to your account.
+        new:
+          fund_source: Select Fund Source
+          manage_fund_source: Manage Fund Source
+          submit: Submit
+          allin: All-In
+        create:
+          notice: Withdrawal request successfully submitted. Use the info below to
+            complete the bank transfer.
+      satoshis:
+        destroy:
+          notice: Withdraw been canceled, frozen balance has returned to your account
+        update:
+          notice: Withdraw request is submit successful, we will process it as soon
+            as possible
+          alert_two_factor: Two-Factor Authentication error
+        new:
+          submit: Submit
+          allin: All-In
+          fund_source_label: Label
+          manage_fund_source: Manage Fund Source
+        create:
+          notice: Withdrawal request successfully submitted. Use the info below to
+            complete the bank transfer.
+      litecoins:
+        destroy:
+          notice: Withdraw been canceled, frozen balance has returned to your account
+        update:
+          notice: Withdraw request is submit successful, we will process it as soon
+            as possible
+          alert_two_factor: Two-Factor Authentication error
+        new:
+          submit: Submit
+          allin: All-In
+          fund_source_label: Label
+          manage_fund_source: Manage Fund Source
+        create:
+          notice: Withdrawal request successfully submitted. Use the info below to
+            complete the bank transfer.
+      ethers:
+        destroy:
+          notice: Withdraw been canceled, frozen balance has returned to your account
+        update:
+          notice: Withdraw request is submit successful, we will process it as soon
+            as possible
+          alert_two_factor: Two-Factor Authentication error
+        new:
+          submit: Submit
+          allin: All-In
+          fund_source_label: Label
+          manage_fund_source: Manage Fund Source
+        create:
+          notice: Withdrawal request successfully submitted. Use the info below to
+            complete the bank transfer.
+      bitcoincashs:
+        destroy:
+          notice: Withdraw been canceled, frozen balance has returned to your account
+        update:
+          notice: Withdraw request is submit successful, we will process it as soon
+            as possible
+          alert_two_factor: Two-Factor Authentication error
+        new:
+          submit: Submit
+          allin: All-In
+          fund_source_label: Label
+          manage_fund_source: Manage Fund Source
+        create:
+          notice: Withdrawal request successfully submitted. Use the info below to
+            complete the bank transfer.
+      dashcoins:
+        destroy:
+          notice: Withdraw been canceled, frozen balance has returned to your account
+        update:
+          notice: Withdraw request is submit successful, we will process it as soon
+            as possible
+          alert_two_factor: Two-Factor Authentication error
+        new:
+          submit: Submit
+          allin: All-In
+          fund_source_label: Label
+          manage_fund_source: Manage Fund Source
+        create:
+          notice: Withdrawal request successfully submitted. Use the info below to
+            complete the bank transfer.
+      etherclassics:
+        destroy:
+          notice: Withdraw been canceled, frozen balance has returned to your account
+        update:
+          notice: Withdraw request is submit successful, we will process it as soon
+            as possible
+          alert_two_factor: Two-Factor Authentication error
+        new:
+          submit: Submit
+          allin: All-In
+          fund_source_label: Label
+          manage_fund_source: Manage Fund Source
+        create:
+          notice: Withdrawal request successfully submitted. Use the info below to
+            complete the bank transfer.
+      ubiqs:
+        destroy:
+          notice: Withdraw been canceled, frozen balance has returned to your account
+        update:
+          notice: Withdraw request is submit successful, we will process it as soon
+            as possible
+          alert_two_factor: Two-Factor Authentication error
+        new:
+          submit: Submit
+          allin: All-In
+          fund_source_label: Label
+          manage_fund_source: Manage Fund Source
+        create:
+          notice: Withdrawal request successfully submitted. Use the info below to
+            complete the bank transfer.
+      nems:
+        destroy:
+          notice: Withdraw been canceled, frozen balance has returned to your account
+        update:
+          notice: Withdraw request is submit successful, we will process it as soon
+            as possible
+          alert_two_factor: Two-Factor Authentication error
+        new:
+          submit: Submit
+          allin: All-In
+          fund_source_label: Label
+          manage_fund_source: Manage Fund Source
+        create:
+          notice: Withdrawal request successfully submitted. Use the info below to
+            complete the bank transfer.
+      dogecoins:
+        destroy:
+          notice: Withdraw been canceled, frozen balance has returned to your account
+        update:
+          notice: Withdraw request is submit successful, we will process it as soon
+            as possible
+          alert_two_factor: Two-Factor Authentication error
+        new:
+          submit: Submit
+          allin: All-In
+          fund_source_label: Label
+          manage_fund_source: Manage Fund Source
+        create:
+          notice: Withdrawal request successfully submitted. Use the info below to
+            complete the bank transfer.
+      florincoins:
+        destroy:
+          notice: Withdraw been canceled, frozen balance has returned to your account
+        update:
+          notice: Withdraw request is submit successful, we will process it as soon
+            as possible
+          alert_two_factor: Two-Factor Authentication error
+        new:
+          submit: Submit
+          allin: All-In
+          fund_source_label: Label
+          manage_fund_source: Manage Fund Source
+        create:
+          notice: Withdrawal request successfully submitted. Use the info below to
+            complete the bank transfer.
+      geocoins:
+        destroy:
+          notice: Withdraw been canceled, frozen balance has returned to your account
+        update:
+          notice: Withdraw request is submit successful, we will process it as soon
+            as possible
+          alert_two_factor: Two-Factor Authentication error
+        new:
+          submit: Submit
+          allin: All-In
+          fund_source_label: Label
+          manage_fund_source: Manage Fund Source
+        create:
+          notice: Withdrawal request successfully submitted. Use the info below to
+            complete the bank transfer.
+      blackcoins:
+        destroy:
+          notice: Withdraw been canceled, frozen balance has returned to your account
+        update:
+          notice: Withdraw request is submit successful, we will process it as soon
+            as possible
+          alert_two_factor: Two-Factor Authentication error
+        new:
+          submit: Submit
+          allin: All-In
+          fund_source_label: Label
+          manage_fund_source: Manage Fund Source
+        create:
+          notice: Withdrawal request successfully submitted. Use the info below to
+            complete the bank transfer.
+      belacoins:
+        destroy:
+          notice: Withdraw been canceled, frozen balance has returned to your account
+        update:
+          notice: Withdraw request is submit successful, we will process it as soon
+            as possible
+          alert_two_factor: Two-Factor Authentication error
+        new:
+          submit: Submit
+          allin: All-In
+          fund_source_label: Label
+          manage_fund_source: Manage Fund Source
+        create:
+          notice: Withdrawal request successfully submitted. Use the info below to
+            complete the bank transfer.
+      lbrycrds:
+        destroy:
+          notice: Withdraw been canceled, frozen balance has returned to your account
+        update:
+          notice: Withdraw request is submit successful, we will process it as soon
+            as possible
+          alert_two_factor: Two-Factor Authentication error
+        new:
+          submit: Submit
+          allin: All-In
+          fund_source_label: Label
+          manage_fund_source: Manage Fund Source
+        create:
+          notice: Withdrawal request successfully submitted. Use the info below to
+            complete the bank transfer.
+      neoscoins:
+        destroy:
+          notice: Withdraw been canceled, frozen balance has returned to your account
+        update:
+          notice: Withdraw request is submit successful, we will process it as soon
+            as possible
+          alert_two_factor: Two-Factor Authentication error
+        new:
+          submit: Submit
+          allin: All-In
+          fund_source_label: Label
+          manage_fund_source: Manage Fund Source
+        create:
+          notice: Withdrawal request successfully submitted. Use the info below to
+            complete the bank transfer.
+      nexuscoins:
+        destroy:
+          notice: Withdraw been canceled, frozen balance has returned to your account
+        update:
+          notice: Withdraw request is submit successful, we will process it as soon
+            as possible
+          alert_two_factor: Two-Factor Authentication error
+        new:
+          submit: Submit
+          allin: All-In
+          fund_source_label: Label
+          manage_fund_source: Manage Fund Source
+        create:
+          notice: Withdrawal request successfully submitted. Use the info below to
+            complete the bank transfer.
+      namecoins:
+        destroy:
+          notice: Withdraw been canceled, frozen balance has returned to your account
+        update:
+          notice: Withdraw request is submit successful, we will process it as soon
+            as possible
+          alert_two_factor: Two-Factor Authentication error
+        new:
+          submit: Submit
+          allin: All-In
+          fund_source_label: Label
+          manage_fund_source: Manage Fund Source
+        create:
+          notice: Withdrawal request successfully submitted. Use the info below to
+            complete the bank transfer.
+      syscoins:
+        destroy:
+          notice: Withdraw been canceled, frozen balance has returned to your account
+        update:
+          notice: Withdraw request is submit successful, we will process it as soon
+            as possible
+          alert_two_factor: Two-Factor Authentication error
+        new:
+          submit: Submit
+          allin: All-In
+          fund_source_label: Label
+          manage_fund_source: Manage Fund Source
+        create:
+          notice: Withdrawal request successfully submitted. Use the info below to
+            complete the bank transfer.
+      pinkcoins:
+        destroy:
+          notice: Withdraw been canceled, frozen balance has returned to your account
+        update:
+          notice: Withdraw request is submit successful, we will process it as soon
+            as possible
+          alert_two_factor: Two-Factor Authentication error
+        new:
+          submit: Submit
+          allin: All-In
+          fund_source_label: Label
+          manage_fund_source: Manage Fund Source
+        create:
+          notice: Withdrawal request successfully submitted. Use the info below to
+            complete the bank transfer.
+      peercoins:
+        destroy:
+          notice: Withdraw been canceled, frozen balance has returned to your account
+        update:
+          notice: Withdraw request is submit successful, we will process it as soon
+            as possible
+          alert_two_factor: Two-Factor Authentication error
+        new:
+          submit: Submit
+          allin: All-In
+          fund_source_label: Label
+          manage_fund_source: Manage Fund Source
+        create:
+          notice: Withdrawal request successfully submitted. Use the info below to
+            complete the bank transfer.
+      potcoins:
+        destroy:
+          notice: Withdraw been canceled, frozen balance has returned to your account
+        update:
+          notice: Withdraw request is submit successful, we will process it as soon
+            as possible
+          alert_two_factor: Two-Factor Authentication error
+        new:
+          submit: Submit
+          allin: All-In
+          fund_source_label: Label
+          manage_fund_source: Manage Fund Source
+        create:
+          notice: Withdrawal request successfully submitted. Use the info below to
+            complete the bank transfer.
+      vertcoins:
+        destroy:
+          notice: Withdraw been canceled, frozen balance has returned to your account
+        update:
+          notice: Withdraw request is submit successful, we will process it as soon
+            as possible
+          alert_two_factor: Two-Factor Authentication error
+        new:
+          submit: Submit
+          allin: All-In
+          fund_source_label: Label
+          manage_fund_source: Manage Fund Source
+        create:
+          notice: Withdrawal request successfully submitted. Use the info below to
+            complete the bank transfer.
+      bitcoinpls:
+        destroy:
+          notice: Withdraw been canceled, frozen balance has returned to your account
+        update:
+          notice: Withdraw request is submit successful, we will process it as soon
+            as possible
+          alert_two_factor: Two-Factor Authentication error
+        new:
+          submit: Submit
+          allin: All-In
+          fund_source_label: Label
+          manage_fund_source: Manage Fund Source
+        create:
+          notice: Withdrawal request successfully submitted. Use the info below to
+            complete the bank transfer.
+      primecoins:
+        destroy:
+          notice: Withdraw been canceled, frozen balance has returned to your account
+        update:
+          notice: Withdraw request is submit successful, we will process it as soon
+            as possible
+          alert_two_factor: Two-Factor Authentication error
+        new:
+          submit: Submit
+          allin: All-In
+          fund_source_label: Label
+          manage_fund_source: Manage Fund Source
+        create:
+          notice: Withdrawal request successfully submitted. Use the info below to
+            complete the bank transfer.
+      radiums:
+        destroy:
+          notice: Withdraw been canceled, frozen balance has returned to your account
+        update:
+          notice: Withdraw request is submit successful, we will process it as soon
+            as possible
+          alert_two_factor: Two-Factor Authentication error
+        new:
+          submit: Submit
+          allin: All-In
+          fund_source_label: Label
+          manage_fund_source: Manage Fund Source
+        create:
+          notice: Withdrawal request successfully submitted. Use the info below to
+            complete the bank transfer.
+      riecoins:
+        destroy:
+          notice: Withdraw been canceled, frozen balance has returned to your account
+        update:
+          notice: Withdraw request is submit successful, we will process it as soon
+            as possible
+          alert_two_factor: Two-Factor Authentication error
+        new:
+          submit: Submit
+          allin: All-In
+          fund_source_label: Label
+          manage_fund_source: Manage Fund Source
+        create:
+          notice: Withdrawal request successfully submitted. Use the info below to
+            complete the bank transfer.
+      digibytes:
+        destroy:
+          notice: Withdraw been canceled, frozen balance has returned to your account
+        update:
+          notice: Withdraw request is submit successful, we will process it as soon
+            as possible
+          alert_two_factor: Two-Factor Authentication error
+        new:
+          submit: Submit
+          allin: All-In
+          fund_source_label: Label
+          manage_fund_source: Manage Fund Source
+        create:
+          notice: Withdrawal request successfully submitted. Use the info below to
+            complete the bank transfer.
+      dfscoins:
+        destroy:
+          notice: Withdraw been canceled, frozen balance has returned to your account
+        update:
+          notice: Withdraw request is submit successful, we will process it as soon
+            as possible
+          alert_two_factor: Two-Factor Authentication error
+        new:
+          submit: Submit
+          allin: All-In
+          fund_source_label: Label
+          manage_fund_source: Manage Fund Source
+        create:
+          notice: Withdrawal request successfully submitted. Use the info below to
+            complete the bank transfer.
+      bitcoindarks:
+        destroy:
+          notice: Withdraw been canceled, frozen balance has returned to your account
+        update:
+          notice: Withdraw request is submit successful, we will process it as soon
+            as possible
+          alert_two_factor: Two-Factor Authentication error
+        new:
+          submit: Submit
+          allin: All-In
+          fund_source_label: Label
+          manage_fund_source: Manage Fund Source
+        create:
+          notice: Withdrawal request successfully submitted. Use the info below to
+            complete the bank transfer.
+      viacoins:
+        destroy:
+          notice: Withdraw been canceled, frozen balance has returned to your account
+        update:
+          notice: Withdraw request is submit successful, we will process it as soon
+            as possible
+          alert_two_factor: Two-Factor Authentication error
+        new:
+          submit: Submit
+          allin: All-In
+          fund_source_label: Label
+          manage_fund_source: Manage Fund Source
+        create:
+          notice: Withdrawal request successfully submitted. Use the info below to
+            complete the bank transfer.
+    tickets:
+      index:
+        new_ticket: New Ticket
+      new:
+        intro: If you have any problems, start a new discussion so that our staff
+          can help you out as soon as possible. All discussions are private between
+          you and the support staff.
+      ticket_create_succ: Ticket created successfully.
+      ticket_create_fail: Failed to create ticket, please try again latter.
+      comment_succ: Comment successfully.
+      cooment_fail: Comment failed, please try again latter
+      me: me
+      supporter: Support
+      close: Close Ticket
+      close_succ: Ticket closed successfully
+      close_confirm: Are you sure to close this ticket?
+      title_content_both_blank: Title and content could be both be empty.
+      from: from
+      view_closed_tickets: View closed tickets
+      view_open_tickets: View open tickets
+    account_versions:
+      index:
+        description: Every transaction and every penny of income in Demo are well
+          documented and exhaustive.
+    api_tokens:
+      user_tokens:
+        no_token: You have no API token.
+        edit: Edit
+        destroy: Destroy
+        destroy-confirm: Are you sure?
+        create: Create New Token
+        http: HTTP API Document
+        websocket: Websocket API Document
+        more: 'For more information please check the API section on github:'
+      oauth_tokens:
+        panel_title: Authorizations
+        title: Authorized Applications
+        oauth: OAuth Integration
+        intro: Manage all your authorized applications.
+        no_token: No Application.
+        unbind: Revoke
+        unbind-confirm: Are you sure?
+        oauth_app_name: Name
+        oauth_app_expire: Expire At
+        oauth_app_scope: Scopes
+      unbind:
+        success: Successfully revoked.
+        failed: Revoke failed.
+      new:
+        label_hint: Label helps you remember token usage, optional.
+      create:
+        alert_two_factor: Two step authentication failed.
+        success: API token created successfully.
+        failed: Failed to create API token. Please try again later or contact admin.
+        desc: Please copy and paste keys below to a safe place and save. The secret key will never be displayed again.
+      edit:
+        access_key_hint: Created at %{created_at}
+        label_hint: Label helps you remember token usage, optional.
+        ip_whitelist_hint: Seperate IP by commas, leave this field blank means all IP are allowed.
+      update:
+        alert_two_factor: Two step authentication failed.
+        success: Saved successfully.
+        failed: Failed to save token. Please try again later or contact admin.
+      destroy:
+        success: The token has been successfully destroyed.
+        failed: Failed to destroy token.
+    assets:
+      index:
+        liability-proof: Proof of Liabilities
+        btc-assets: BTC Assets
+        cny-assets: CNY Assets
+        usd-assets: USD Assets
+        xem-assets: XEM Assets
+        ltc-assets: LTC Assets
+        dash-assets: DASH Assets
+        bch-assets: BCH Assets
+        eth-assets: ETH Assets
+        xrp-assets: XRP Assets
+        etc-assets: ETC Assets
+        ubq-assets: UBQ Assets
+        doge-assets: DOGE Assets
+        flo-assets: FLO Assets
+        geo-assets: GEO Assets
+        blk-assets: BLK Assets
+        bela-assets: BELA Assets
+        lbc-assets: LBC Assets
+        neos-assets: NEOS Assets
+        nxs-assets: NXS Assets
+        nmc-assets: NMC Assets
+        sys-assets: SYS Assets
+        pink-assets: PINK Assets
+        ppc-assets: PPC Assets
+        pot-assets: POT Assets
+        vtc-assets: VTC Assets
+        xbc-assets: XBC Assets
+        xpm-assets: XPM Assets
+        rads-assets: RADS Assets
+        ric-assets: RIC Assets
+        dgb-assets: DGB Assets
+        dfs-assets: DFS Assets
+        btcd-assets: BTCD Assets
+        via-assets: VIA Assets
+      liability_tabs:
+        verify-btc: Verify My BTC Assets
+        verify-cny: Verify My CNY Assets
+        verify-usd: Verify My USD Assets
+        verify-eth: Verify My ETH Assets
+        verify-ltc: Verify My LTC Assets
+        verify-dash: Verify My DASH Assets
+        verify-bch: Verify My BCH Assets
+        verify-xrp: Verify My XRP Assets
+        verify-etc: Verify My ETC Assets
+        verify-ubq: Verify My UBQ Assets
+        verify-xem: Verify My XEM Assets
+        verify-doge: Verify My DOGE Assets
+        verify-flo: Verify My FLO Assets
+        verify-geo: Verify My GEO Assets
+        verify-blk: Verify My BLK Assets
+        verify-bela: Verify My BELA Assets
+        verify-lbc: Verify My LBC Assets
+        verify-neos: Verify My NEOS Assets
+        verify-nxs: Verify My NXS Assets
+        verify-nmc: Verify My NMC Assets
+        verify-sys: Verify My SYS Assets
+        verify-pink: Verify My PINK Assets
+        verify-ppc: Verify My PPC Assets
+        verify-pot: Verify My POT Assets
+        verify-vtc: Verify My VTC Assets
+        verify-xbc: Verify My XBC Assets
+        verify-xpm: Verify My XPM Assets
+        verify-rads: Verify My RADS Assets
+        verify-ric: Verify My RIC Assets
+        verify-dgb: Verify My DGB Assets
+        verify-dfs: Verify My DFS Assets
+        verify-btcd: Verify My BTCD Assets
+        verify-via: Verify My VIA Assets
+        btc-assets-total: 'Total BTC assets of exchange: '
+        cny-assets-total: 'Total CNY assets of exchange: '
+        usd-assets-total: 'Total USD assets of exchange: '
+        ltc-assets-total: 'Total LTC assets of exchange: '
+        dash-assets-total: 'Total DASH assets of exchange: '
+        bch-assets-total: 'Total BCH assets of exchange: '
+        eth-assets-total: 'Total ETH assets of exchange: '
+        xrp-assets-total: 'Total XRP assets of exchange: '
+        etc-assets-total: 'Total ETC assets of exchange: '
+        ubq-assets-total: 'Total UBQ assets of exchange: '
+        xem-assets-total: 'Total XEM assets of exchange: '
+        doge-assets-total: 'Total DOGE assets of exchange: '
+        flo-assets-total: 'Total FLO assets of exchange: '
+        geo-assets-total: 'Total GEO assets of exchange: '
+        blk-assets-total: 'Total BLK assets of exchange: '
+        bela-assets-total: 'Total BELA assets of exchange: '
+        lbc-assets-total: 'Total LBC assets of exchange: '
+        neos-assets-total: 'Total NEOS assets of exchange: '
+        nxs-assets-total: 'Total NXS assets of exchange: '
+        nmc-assets-total: 'Total NMC assets of exchange: '
+        sys-assets-total: 'Total SYS assets of exchange: '
+        pink-assets-total: 'Total PINK assets of exchange: '
+        ppc-assets-total: 'Total PPC assets of exchange: '
+        pot-assets-total: 'Total POT assets of exchange: '
+        vtc-assets-total: 'Total VTC assets of exchange: '
+        xbc-assets-total: 'Total XBC assets of exchange: '
+        xpm-assets-total: 'Total XPM assets of exchange: '
+        rads-assets-total: 'Total RADS assets of exchange: '
+        ric-assets-total: 'Total RIC assets of exchange: '
+        dgb-assets-total: 'Total DGB assets of exchange: '
+        dfs-assets-total: 'Total DFS assets of exchange: '
+        btcd-assets-total: 'Total BTCD assets of exchange: '
+        via-assets-total: 'Total VIA assets of exchange: '
+      liability_proof:
+        title: Proof of Liabilities
+        intro: As an exchange, our liabilities refer to the sum of money (in both
+          crypto currencies and fiat currencies) that our users trust us with. On
+          this page, we present you our liabilities. We also provide you a way to
+          verify that your account balance is indeed part of our liabilities.
+        how-to-verify: How to verify an exchange is solvent?
+        how-to-verify-uri: https://peatio.com/documents/liability_proof
+      liability_data:
+        liability-proof-generating: Proof of Liability generation in process, please
+          come back after 30 minutes.
+        root-json: Root node
+        partial-tree: 'My %{currency} Assets: '
+        get-partial-tree: Get my partial tree data
+        timestamp: The proof data is generated at %{time}.
+        go-verify: Verify
+      btc_assets:
+        title: BTC Assets
+        intro: All of exchange's BTC assets are listed here.
+        total: Total BTC Assets
+        address: Address
+      eth_assets:
+        title: ETH Assets
+        intro: All of exchange's ETH assets are listed here.
+        total: Total ETH Assets
+        address: Address
+      ltc_assets:
+        title: LTC Assets
+        intro: All of exchange's LTC assets are listed here.
+        total: Total LTC Assets
+        address: Address
+      dash_assets:
+        title: DASH Assets
+        intro: All of exchange's DASH assets are listed here.
+        total: Total DASH Assets
+        address: Address
+      bch_assets:
+        title: BCH Assets
+        intro: All of exchange's BCH assets are listed here.
+        total: Total BCH Assets
+        address: Address
+      xrp_assets:
+        title: XRP Assets
+        intro: All of exchange's XRP assets are listed here.
+        total: Total XRP Assets
+        address: Address
+      etc_assets:
+        title: ETC Assets
+        intro: All of exchange's ETC assets are listed here.
+        total: Total ETC Assets
+        address: Address
+      ubq_assets:
+        title: UBQ Assets
+        intro: All of exchange's UBQ assets are listed here.
+        total: Total UBQ Assets
+        address: Address
+      xem_assets:
+        title: XEM Assets
+        intro: All of exchange's XEM assets are listed here.
+        total: Total XEM Assets
+        address: Address
+      doge_assets:
+        title: DOGE Assets
+        intro: All of exchange's DOGE assets are listed here.
+        total: Total DOGE Assets
+        address: Address
+      flo_assets:
+        title: FLO Assets
+        intro: All of exchange's FLO assets are listed here.
+        total: Total FLO Assets
+        address: Address
+      geo_assets:
+        title: GEO Assets
+        intro: All of exchange's GEO assets are listed here.
+        total: Total GEO Assets
+        address: Address
+      blk_assets:
+        title: BLK Assets
+        intro: All of exchange's BLK assets are listed here.
+        total: Total BLK Assets
+        address: Address
+      bela_assets:
+        title: BELA Assets
+        intro: All of exchange's BELA assets are listed here.
+        total: Total BELA Assets
+        address: Address
+      lbc_assets:
+        title: LBC Assets
+        intro: All of exchange's LBC assets are listed here.
+        total: Total LBC Assets
+        address: Address
+      neos_assets:
+        title: NEOS Assets
+        intro: All of exchange's NEOS assets are listed here.
+        total: Total NEOS Assets
+        address: Address
+      nxs_assets:
+        title: NXS Assets
+        intro: All of exchange's NXS assets are listed here.
+        total: Total NXS Assets
+        address: Address
+      nmc_assets:
+        title: NMC Assets
+        intro: All of exchange's NMC assets are listed here.
+        total: Total NMC Assets
+        address: Address
+      sys_assets:
+        title: SYS Assets
+        intro: All of exchange's SYS assets are listed here.
+        total: Total SYS Assets
+        address: Address
+      pink_assets:
+        title: PINK Assets
+        intro: All of exchange's PINK assets are listed here.
+        total: Total PINK Assets
+        address: Address
+      ppc_assets:
+        title: PPC Assets
+        intro: All of exchange's PPC assets are listed here.
+        total: Total PPC Assets
+        address: Address
+      pot_assets:
+        title: POT Assets
+        intro: All of exchange's POT assets are listed here.
+        total: Total POT Assets
+        address: Address
+      vtc_assets:
+        title: VTC Assets
+        intro: All of exchange's VTC assets are listed here.
+        total: Total VTC Assets
+        address: Address
+      xbc_assets:
+        title: XBC Assets
+        intro: All of exchange's XBC assets are listed here.
+        total: Total XBC Assets
+        address: Address
+      xpm_assets:
+        title: XPM Assets
+        intro: All of exchange's XPM assets are listed here.
+        total: Total XPM Assets
+        address: Address
+      rads_assets:
+        title: RADS Assets
+        intro: All of exchange's RADS assets are listed here.
+        total: Total RADS Assets
+        address: Address
+      ric_assets:
+        title: RIC Assets
+        intro: All of exchange's RIC assets are listed here.
+        total: Total RIC Assets
+        address: Address
+      dgb_assets:
+        title: DGB Assets
+        intro: All of exchange's DGB assets are listed here.
+        total: Total DGB Assets
+        address: Address
+      dfs_assets:
+        title: DFS Assets
+        intro: All of exchange's DFS assets are listed here.
+        total: Total DFS Assets
+        address: Address
+      btcd_assets:
+        title: BTCD Assets
+        intro: All of exchange's BTCD assets are listed here.
+        total: Total BTCD Assets
+        address: Address
+      via_assets:
+        title: VIA Assets
+        intro: All of exchange's VIA assets are listed here.
+        total: Total VIA Assets
+        address: Address
+      cny_assets:
+        title: CNY Assets
+        intro: All of exchange's CNY assets are listed here.
+        total: Total CNY Assets
+        description: " <p>For supervision, you can inquiry the balance of our deposit
+          account:</p> <p>Bank: %{bank}</p> <p>Account： %{address}</p> <p>Inquiry
+          Password： %{password}</p> <p>Inquiry Tel.： %{tel}</p>"
+      usd_assets:
+        title: USD Assets
+        intro: All of exchange's USD assets are listed here.
+        total: Total USD Assets
+        description: " <p>For supervision, you can inquiry the balance of our deposit
+          account:</p> <p>Bank: %{bank}</p> <p>Account： %{address}</p> <p>Inquiry
+          Password： %{password}</p> <p>Inquiry Tel.： %{tel}</p>"
+      partial_tree:
+        success: 'Success! Verification data generated at: %{timestamp}'
+    funds:
+      show:
+        account_history: Account History
+        cny_format: '0.00'
+        usd_format: '0.00'
+        btc_format: '0.00000000'
+        reason:
+          cny:
+            strike_add: Plus
+            strike_sub: Sub
+            deposit: Deposit
+            withdraw: Withdraw
+            fix: Fix
+          usd:
+            strike_add: Plus
+            strike_sub: Sub
+            deposit: Deposit
+            withdraw: Withdraw
+            fix: Fix
+          btc:
+            strike_add: Plus
+            strike_sub: Sub
+            deposit: Deposit
+            withdraw: Withdraw
+            fix: Fix
+        ref:
+          system: System
+          default: Default
+    id_documents:
+      edit:
+        state: State
+        state_unverified: UNVERIFIED
+        state_verifying: VERIFYING
+        state_verified: VERIFIED
+        name: Real Name
+        birth_date: Birth Date
+        address: Address
+        city: City
+        country: Country
+        zipcode: Zipcode
+        id_document_type: Document Type
+        id_document_number: Document Number
+        id_document_file: Document Photo
+        id_bill_type: Proof Of Residence
+        id_bill_file: Proof Of Residence Photo
+      update:
+        notice: Your account verification has been submitted.
+    markets:
+      show:
+        error: Failed
+        success: Success
+        analysis_panel: Analysis
+        help_panel: Help
+        done: DONE
+        cancel: CANCEL
+        cancel_confirm: Are your sure cancel order?
+        confirm: CONFIRM
+        ask_order: 'ASK ##sn#'
+        bid_order: 'BID ##sn#'
+        my_active_order: Active
+        my_done_order: Done
+        trades: Trading
+        chat: Chat Channel
+      market_list:
+        all: All Markets
+        all_html: "<i class='fa fa-check'></i><span>All Markets</span>"
+        cny_html: "<i class='fa fa-check'></i><span>CNY Markets</span>"
+        usd_html: "<i class='fa fa-check'></i><span>USD Markets</span>"
+        btc_html: "<i class='fa fa-check'></i><span>BTC Markets</span>"
+        eth_html: "<i class='fa fa-check'></i><span>ETH Markets</span>"
+        price: Price
+        change: "24h %"
+      range_switch:
+        switch_1: 1m
+        switch_5: 5m
+        switch_15: 15m
+        switch_30: 30m
+        switch_60: 1h
+        switch_120: 2h
+        switch_240: 4h
+        switch_360: 6h
+        switch_720: 12h
+        switch_1440: 1d
+        switch_4320: 3d
+        switch_10080: 1w
+      depths:
+        price: Price
+        amount: Amount
+        buy: Buy
+        sell: Sell
+        ask_orders: Sell
+        bid_orders: Buy
+      ticker:
+        last: Last Price
+        ask: ASK
+        bid: BID
+      account_balance:
+        title: Account Balance
+        available: Available %{currency}
+      bid_entry:
+        action: "Buy %{currency}"
+        price: Price
+        last_price: Last Price
+        amount: Amount
+        total: Total
+      ask_entry:
+        action: "Sell %{currency}"
+        price: Price
+        last_price: Last Price
+        amount: Amount
+        total: Total
+      place_order:
+        price_high: HIGH
+        price_low: LOW
+        full_bid: FULL
+        full_ask: EMPTY
+      order_book:
+        title: Order Book
+        volume: Volume
+        price: Price
+        amount: Amount
+        ask: ASK
+        bid: BID
+        fade_toggle_depth: Market Depth
+      trade_state:
+        new: New
+        partial: Partial
+      market_trades:
+        all: All
+        my: Mine
+        all_html: "<i class='fa fa-check'></i><span>All</span>"
+        my_html: "<i class='fa fa-check'></i><span>Mine</span>"
+        time: Time
+        price: Price
+        volume: Volume
+      header:
+        network: Connection State
+        vol: 24h Volume
+        high: High
+        low: Low
+        change: Change
+      settings:
+        sound: Sound
+        notification: Notify
+        funds: "Funds"
+        signout: "Sign Out"
+        settings: "Profile"
+        history: "History"
+      account_summary:
+        title: Summary
+        account: Account
+        amount: Amount
+        locked: Freeze
+        view_all_accounts: "View All"
+        hide_all_accounts: "Hide Other"
+      my_orders:
+        orders_wait: Latest Orders
+        orders_done: Completed Orders
+        orders_cancel: Cancel Orders
+        no_open_orders: You have no open orders.
+        clear_all_html: "<i class='fa fa-trash'></i><span>Cancel All</span>"
+        clear_bids_html: "<i class='fa fa-trash'></i><span>Cancel Bids</span>"
+        clear_asks_html: "<i class='fa fa-trash'></i><span>Cancel Asks</span>"
+        confirm_clear_all: Are you sure to cancel ALL orders?
+        confirm_clear_bids: Are you sure to cancel all BIDS?
+        confirm_clear_asks: Are you sure to cancel all ASKS?
+        price: Price
+        volume: Volume
+        amount: Amount
+        time: Place Time
+      mask:
+        warning: Please <a class=text-up href='/'>Sign up</a> or <a class=text-up
+          href='/'>Sign in</a> for operation
+      klime_chart:
+        title: Candlestick Charts
+      global:
+        global_orders_title: ORDERS
+        global_trades_title: TRADES
+      chat:
+        title: Chat Channel
+    settings:
+      success: Settings updated successfully.
+      failure: Invalid passcode. Please try again.
+      index:
+        safety_instruction: In order to protect your bitcoins and personal information, we strongly suggest that you use Two-Factor Authentication.
+        reset_password: Rest your Password
+        reauthenticate: Authentication
+        activated: An  email has been sent to your mailbox, please check it for verification
+          as soon as possible. If you do not received it , please click "send it again"
+          button
+        auth-activated: Please confirm your email address first.
+        auth-verified: Please verify your account first.
+        email:
+          title: E-mail verification
+          description: Your e-mail has not been verified, click the "Send Mail" button
+            to complete the verification
+          description-activated: Your email adress has been verified successfully,
+            remember and protect this e-mail address, it is the single certificate
+            for your  account
+          resend: Send it again
+          activated: Verified
+          go: Set
+        phone_number:
+          title: Phone Number
+          description: Providing a phone number will make your account more secure.
+            You can quickly reset your password and your account operations will be
+            notified.
+          go: Set
+          verified: Verified
+          hint: "Verified number %{hint}"
+        two_factor_auth:
+          title: Two-Factor Authentication
+          description: Two-Factor Authentication provides another layer of security
+            to your account.
+          enable: Enable
+          disable: Disable
+        verification:
+          title: Verify Account
+          description: Help keep the bad guys out of your account by using both your
+            password and your phone
+          go: Submit
+          verified: Verified
+        asset_passwords:
+          title: Asset password
+          description: The asset password will be needed when you withdraw your money.
+            It is strongly recommended that you do not use the same password as your
+            account password!
+          go: Set
+        passwords:
+          title: Password
+          description: This password is required for login, please remember it.
+          go: Change Password
+          set: Set
+        api_tokens:
+          title: API Tokens
+          description: Create and manage your API tokens.
+          go: Set
+        weibo:
+          title: Connect to Weibo
+          description: After you connecting to Weibo, you can login via Weibo account.
+          bound_desc: This has been connected with %{nickname}.
+          bind: Connect
+          unbind: Disconnect
+    otps:
+      new:
+        step_1: Step 1
+        step_2: Step 2
+        step_3: Step 3
+        or: OR
+        download_app: Install Google Authenticator app on your smart phone and open it.
+        scan_qr_code: Scan the QR code below
+        enter_passphrase: Manually enter the following key into the app
+        enter_passcode: Enter and submit the passcode generated by the Google Authenticator app.
+    shared:
+      balances:
+        locked: Frozen
+        balance: Balance
+        available: Available
+        title: "%{icon} %{c} Account"
+        cny_format: '0.00'
+        usd_format: '0.00'
+        btc_format: '0.00000000'
+        total: Total
+  guides:
+    private:
+      settings:
+        panel: Settings
+        index:
+          intro: Admin and revise your profile.
+      api_tokens:
+        panel: API Tokens
+        index:
+          title: My Tokens
+          intro: A list of all your API tokens. An empty 'IP Whitelist' means any
+            ip is allowed to use the token.
+        new:
+          title: Create API Token
+        create:
+          title: Create API Token
+        edit:
+          title: Edit API Token
+        update:
+          title: Edit API Token
+      tickets:
+        panel: Tickets
+      id_documents:
+        panel: Real-name Authentication
+        new:
+          title: Submit real-name authentication information
+          intro: In line with the national laws , identity verification is required.
+            please verify your account to proceed.
+    panels:
+      balance: Account
+    verify:
+      google_auths:
+        panel: Two-Factor Authentication
+        edit:
+          title: Disable Two-Factor Authentication
+          intro: If you have a new phone, you can disable Two-Factor Authentication in the old phone, and enable Two-Factor Authentication  with the new one.
+      sms_auths:
+        panel: Verify Phone Number
+    reset_passwords:
+      panel: Password
+      new:
+        title: Reset Password
+        intro: Please enter your e-mail address which is verified by your  account,
+          enter verification code to submit,and login your mailbox, follow the prompts
+          to reset your password.
+      create:
+        title: Reset password
+        intro: Please enter your e-mail address which is verified by your  account,
+          enter verification code to submit,and login your mailbox, follow the prompts
+          to reset your password.
+      edit:
+        title: Set Password
+      update:
+        title: Set Password
+    sessions:
+      panel: Login
+      new:
+        title: Login my account
+        intro: Login Demo Exchange now for you to exchange.
+      failure:
+        title: Login my account
+        intro: Login Demo Exchange now for you to exchange.
+    identities:
+      panel: Create Account
+      new:
+        title: Create My Account
+        intro: This will be your only ID on this Exchange Platform which is necessary for your exchange
+          , deposit and withdrawal . please fill it out carefully.
+      edit:
+        panel: My Account
+        title: Reset Password
+    two_factors:
+      panel: Two Factor Authenticator
+  simple_form:
+    placeholders:
+      deposit:
+        bank:
+          amount: Minimum amount 100
+      session:
+        email: E-mail Address
+        password: Password
+      identity:
+        email: Example：xiaobai@example.com
+        password: Please set your login password
+        password_confirmation: Confirm your password
+        edit:
+          password: Please set your account password!
+      document:
+        key: Document link URL key
+        title: Document Title
+      order_bid:
+        origin_volume: Buy Volume
+        sum: Sum
+      order_ask:
+        origin_volume: Sell Volume
+        sum: Total Turnover
+      reset_password:
+        email: For example：xiaobai@example.com
+        password: Please set your login password!
+      withdraw:
+        bank:
+          sum: Minimum amount 100
+        satoshi:
+          sum: Minimum amount 0.001
+          fund_extra: Enter a label for this address (optional)
+    hints:
+      deposit:
+        bank:
+          sum: "<a target='_balance' href='#'>Fee structure</a>"
+          member_name: "<span class='text-danger'>Recharge bank account name must
+            match the name with your real name authentication</span>"
+          sn: "<span class='text-danger'>Please copy the SN in your bank transfer's
+            message, otherwise we can not process your order quickly.</span>"
+      two_factor:
+        otp_secret: We recommend that you back up QR code image or ciphertext to avoid
+          that you accidental loss of the phone for the inconvenience.
+        otp: Your validator will re-generate a new password every thirty seconds,
+          please input timely.
+      identity:
+        password: Set a password which has at least 6 characters and it's better to
+          contain uppercase and lowercase letters and numbers.
+      reset_password:
+        password: Set a password which has at least 6 characters and it's better to
+          contain uppercase and lowercase letters and numbers.
+      id_document:
+        name: Please fill in the name which is consistent with your Credentials.
+      withdraw:
+        bank:
+          member_name: "<span class='text-danger'>Withdraw bank account name must
+            match your name used for real-name authentication</span>"
+          sum: "<a target='_balance' href='#'>Fee structure</a>"
+          fund_extra: If your bank is no longer in the list, please contact customer
+            service
+        satoshi:
+          sum: "<a target='_balance' href='#'>Fee structure</a>"
+    creating: Creating...
+    updating: Updating...
+    buttons:
+      or: Or
+      cancel: Cancel
+    'yes': 'Yes'
+    'no': 'No'
+    required:
+      text: required
+      mark: "*"
+    error_notification:
+      default_message: 'Please review the problems below:'
+    labels:
+      defaults:
+        title: Title
+      google_auth:
+        uri: QR code
+        otp_secret: Ciphertext
+        otp: Password on the authenticator
+      fund_source:
+        label: Label
+        address: Address
+        category: Category
+      session:
+        email: Sign In E-mail
+        password: Sign In Password
+        captcha: Captcha
+      identity:
+        email: Sign In E-mail
+        old_password: Original password
+        password: New Password
+        password_confirmation: Confirm new password
+      reset_password:
+        password: New Password
+      ticket:
+        content: More detail
+      withdraw:
+        bank:
+          fund_extra: Bank
+          sum: Amount
+          account_balance: Account Balance
+          member_name: Account Holder Name
+        satoshi:
+          fee: Fee
+          sum: Amount
+          fund_uid: Bitcoin Address
+          fund_extra: Label
+          account_balance: Account Balance
+          member_name: Account
+  admin:
+    deposits:
+      banks:
+        index:
+          oneday: Requests in the last 24 hours
+          available: All Pending Requests
+        show:
+          alert: Recharge cannot be located.
+          notice: The recharge have been successful.
+          deposit: Deposit Request
+          accept: Accept
+          target_deposit: Wire Transfer
+          confirm: Confirm recharge?
+        update:
+          blank_txid: TxID can't be blank
+      satoshis:
+        update:
+          notice: The deposit was successful.
+        index:
+          accept: Accept
+          accept_confirm: Confirm deposit?
+      dashcoins:
+        update:
+          notice: The deposit was successful.
+        index:
+          accept: Accept
+          accept_confirm: Confirm deposit?
+      dogecoins:
+        update:
+          notice: The deposit was successful.
+        index:
+          accept: Accept
+          accept_confirm: Confirm deposit?
+      litecoins:
+        update:
+          notice: The deposit was successful.
+        index:
+          accept: Accept
+          accept_confirm: Confirm deposit?
+      ethers:
+        update:
+          notice: The deposit was successful.
+        index:
+          accept: Accept
+          accept_confirm: Confirm deposit?
+      nems:
+        update:
+          notice: The deposit was successful.
+        index:
+          accept: Accept
+          accept_confirm: Confirm deposit?
+      ripples:
+        update:
+          notice: The deposit was successful.
+        index:
+          accept: Accept
+          accept_confirm: Confirm deposit?
+      bitcoincashs:
+        update:
+          notice: The deposit was successful.
+        index:
+          accept: Accept
+          accept_confirm: Confirm deposit?
+      etherclassics:
+        update:
+          notice: The deposit was successful.
+        index:
+          accept: Accept
+          accept_confirm: Confirm deposit?
+      ubiqs:
+        update:
+          notice: The deposit was successful.
+        index:
+          accept: Accept
+          accept_confirm: Confirm deposit?
+      florincoins:
+        update:
+          notice: The deposit was successful.
+        index:
+          accept: Accept
+          accept_confirm: Confirm deposit?
+      geocoins:
+        update:
+          notice: The deposit was successful.
+        index:
+          accept: Accept
+          accept_confirm: Confirm deposit?
+      blackcoins:
+        update:
+          notice: The deposit was successful.
+        index:
+          accept: Accept
+          accept_confirm: Confirm deposit?
+      belacoins:
+        update:
+          notice: The deposit was successful.
+        index:
+          accept: Accept
+          accept_confirm: Confirm deposit?
+      lbrycrds:
+        update:
+          notice: The deposit was successful.
+        index:
+          accept: Accept
+          accept_confirm: Confirm deposit?
+      neoscoins:
+        update:
+          notice: The deposit was successful.
+        index:
+          accept: Accept
+          accept_confirm: Confirm deposit?
+      nexuscoins:
+        update:
+          notice: The deposit was successful.
+        index:
+          accept: Accept
+          accept_confirm: Confirm deposit?
+      namecoins:
+        update:
+          notice: The deposit was successful.
+        index:
+          accept: Accept
+          accept_confirm: Confirm deposit?
+      syscoins:
+        update:
+          notice: The deposit was successful.
+        index:
+          accept: Accept
+          accept_confirm: Confirm deposit?
+      pinkcoins:
+        update:
+          notice: The deposit was successful.
+        index:
+          accept: Accept
+          accept_confirm: Confirm deposit?
+      peercoins:
+        update:
+          notice: The deposit was successful.
+        index:
+          accept: Accept
+          accept_confirm: Confirm deposit?
+      potcoins:
+        update:
+          notice: The deposit was successful.
+        index:
+          accept: Accept
+          accept_confirm: Confirm deposit?
+      vertcoins:
+        update:
+          notice: The deposit was successful.
+        index:
+          accept: Accept
+          accept_confirm: Confirm deposit?
+      bitcoinpls:
+        update:
+          notice: The deposit was successful.
+        index:
+          accept: Accept
+          accept_confirm: Confirm deposit?
+      primecoins:
+        update:
+          notice: The deposit was successful.
+        index:
+          accept: Accept
+          accept_confirm: Confirm deposit?
+      radiums:
+        update:
+          notice: The deposit was successful.
+        index:
+          accept: Accept
+          accept_confirm: Confirm deposit?
+      riecoins:
+        update:
+          notice: The deposit was successful.
+        index:
+          accept: Accept
+          accept_confirm: Confirm deposit?
+      digibytes:
+        update:
+          notice: The deposit was successful.
+        index:
+          accept: Accept
+          accept_confirm: Confirm deposit?
+      dfscoins:
+        update:
+          notice: The deposit was successful.
+        index:
+          accept: Accept
+          accept_confirm: Confirm deposit?
+      bitcoindarks:
+        update:
+          notice: The deposit was successful.
+        index:
+          accept: Accept
+          accept_confirm: Confirm deposit?
+      viacoins:
+        update:
+          notice: The deposit was successful.
+        index:
+          accept: Accept
+          accept_confirm: Confirm deposit?
+    tickets:
+      view: View
+      close: Close Ticket
+      comments_count: Comments Count
+      replies: Replies
+      open_tickets: Open Tickets
+      closed_tickets: Closed Tickets
+    members:
+      index:
+        search: Search
+        members: Members
+        email: Email
+        name: Name
+        phone: Phone Number
+        wallet_address: Wallet Address
+      show:
+        member_title: User Information
+        actions_title: Action
+        accounts_title: Account Information
+        account_versions_title: Records
+    dashboard:
+      index:
+        accounts_title: Account Summary
+        daemons_title: System Summary
+    documents:
+      index:
+        new: New Document
+    statistic:
+      filter: Filter
+      summary: Summary
+      click-to-expand: Expand
+      members:
+        show:
+          table: Results
+      orders:
+        show:
+          avg: Average
+          sum: Order Volume
+          sum_strike: By Volume
+          count: Count
+      trades:
+        show:
+          count: Transactions
+          volume: Volume
+          amount: Total Amount
+          min_price: Minimum Price
+          max_price: Maximum Price
+          avg_price: Average Price
+          amount_fee: Transaction Fee
+          volume_fee: Total Fee
+      deposits:
+        show:
+          count: Total
+          amount: Total Amount
+      withdraws:
+        show:
+          count: Total
+          amount: Total Amount
+          fee: Fee
+    withdraws:
+      banks:
+        index:
+          one: Pending withdrawal Orders
+          all: Twenty-four hours Orders
+          empty: No Data
+        show:
+          process: Process
+          succeed: Succeed
+          reject: Reject
+          succeed_confirm: Confirm Process?
+          reject_confirm: Confirm Reject?
+          withdraw: Withdraw
+          empty: No Data
+      satoshis:
+        index:
+          one: Pending withdrawals
+          all: Last 24 hours
+          empty: No data
+        show:
+          process: Accepted
+          succeed: Withdraw
+          reject: Reject
+          succeed_confirm: Process withdrawal?
+          reject_confirm: Reject withdrawal?
+          withdraw: Withdrawals
+      litecoins:
+        index:
+          one: Pending withdrawals
+          all: Last 24 hours
+          empty: No data
+        show:
+          process: Accepted
+          succeed: Withdraw
+          reject: Reject
+          succeed_confirm: Process withdrawal?
+          reject_confirm: Reject withdrawal?
+          withdraw: Withdrawals
+      ethers:
+        index:
+          one: Pending withdrawals
+          all: Last 24 hours
+          empty: No data
+        show:
+          process: Accepted
+          succeed: Withdraw
+          reject: Reject
+          succeed_confirm: Process withdrawal?
+          reject_confirm: Reject withdrawal?
+          withdraw: Withdrawals
+      dashcoins:
+        index:
+          one: Pending withdrawals
+          all: Last 24 hours
+          empty: No data
+        show:
+          process: Accepted
+          succeed: Withdraw
+          reject: Reject
+          succeed_confirm: Process withdrawal?
+          reject_confirm: Reject withdrawal?
+          withdraw: Withdrawals
+      bitcoincashs:
+        index:
+          one: Pending withdrawals
+          all: Last 24 hours
+          empty: No data
+        show:
+          process: Accepted
+          succeed: Withdraw
+          reject: Reject
+          succeed_confirm: Process withdrawal?
+          reject_confirm: Reject withdrawal?
+          withdraw: Withdrawals
+      ripples:
+        index:
+          one: Pending withdrawals
+          all: Last 24 hours
+          empty: No data
+        show:
+          process: Accepted
+          succeed: Withdraw
+          reject: Reject
+          succeed_confirm: Process withdrawal?
+          reject_confirm: Reject withdrawal?
+          withdraw: Withdrawals
+      etherclassics:
+        index:
+          one: Pending withdrawals
+          all: Last 24 hours
+          empty: No data
+        show:
+          process: Accepted
+          succeed: Withdraw
+          reject: Reject
+          succeed_confirm: Process withdrawal?
+          reject_confirm: Reject withdrawal?
+          withdraw: Withdrawals
+      ubiqs:
+        index:
+          one: Pending withdrawals
+          all: Last 24 hours
+          empty: No data
+        show:
+          process: Accepted
+          succeed: Withdraw
+          reject: Reject
+          succeed_confirm: Process withdrawal?
+          reject_confirm: Reject withdrawal?
+          withdraw: Withdrawals
+      nems:
+        index:
+          one: Pending withdrawals
+          all: Last 24 hours
+          empty: No data
+        show:
+          process: Accepted
+          succeed: Withdraw
+          reject: Reject
+          succeed_confirm: Process withdrawal?
+          reject_confirm: Reject withdrawal?
+          withdraw: Withdrawals
+      dogecoins:
+        index:
+          one: Pending withdrawals
+          all: Last 24 hours
+          empty: No data
+        show:
+          process: Accepted
+          succeed: Withdraw
+          reject: Reject
+          succeed_confirm: Process withdrawal?
+          reject_confirm: Reject withdrawal?
+          withdraw: Withdrawals
+      florincoins:
+        index:
+          one: Pending withdrawals
+          all: Last 24 hours
+          empty: No data
+        show:
+          process: Accepted
+          succeed: Withdraw
+          reject: Reject
+          succeed_confirm: Process withdrawal?
+          reject_confirm: Reject withdrawal?
+          withdraw: Withdrawals
+      geocoins:
+        index:
+          one: Pending withdrawals
+          all: Last 24 hours
+          empty: No data
+        show:
+          process: Accepted
+          succeed: Withdraw
+          reject: Reject
+          succeed_confirm: Process withdrawal?
+          reject_confirm: Reject withdrawal?
+          withdraw: Withdrawals
+      blackcoins:
+        index:
+          one: Pending withdrawals
+          all: Last 24 hours
+          empty: No data
+        show:
+          process: Accepted
+          succeed: Withdraw
+          reject: Reject
+          succeed_confirm: Process withdrawal?
+          reject_confirm: Reject withdrawal?
+          withdraw: Withdrawals
+      belacoins:
+        index:
+          one: Pending withdrawals
+          all: Last 24 hours
+          empty: No data
+        show:
+          process: Accepted
+          succeed: Withdraw
+          reject: Reject
+          succeed_confirm: Process withdrawal?
+          reject_confirm: Reject withdrawal?
+          withdraw: Withdrawals
+      lbrycrds:
+        index:
+          one: Pending withdrawals
+          all: Last 24 hours
+          empty: No data
+        show:
+          process: Accepted
+          succeed: Withdraw
+          reject: Reject
+          succeed_confirm: Process withdrawal?
+          reject_confirm: Reject withdrawal?
+          withdraw: Withdrawals
+      neoscoins:
+        index:
+          one: Pending withdrawals
+          all: Last 24 hours
+          empty: No data
+        show:
+          process: Accepted
+          succeed: Withdraw
+          reject: Reject
+          succeed_confirm: Process withdrawal?
+          reject_confirm: Reject withdrawal?
+          withdraw: Withdrawals
+      nexuscoins:
+        index:
+          one: Pending withdrawals
+          all: Last 24 hours
+          empty: No data
+        show:
+          process: Accepted
+          succeed: Withdraw
+          reject: Reject
+          succeed_confirm: Process withdrawal?
+          reject_confirm: Reject withdrawal?
+          withdraw: Withdrawals
+      namecoins:
+        index:
+          one: Pending withdrawals
+          all: Last 24 hours
+          empty: No data
+        show:
+          process: Accepted
+          succeed: Withdraw
+          reject: Reject
+          succeed_confirm: Process withdrawal?
+          reject_confirm: Reject withdrawal?
+          withdraw: Withdrawals
+      syscoins:
+        index:
+          one: Pending withdrawals
+          all: Last 24 hours
+          empty: No data
+        show:
+          process: Accepted
+          succeed: Withdraw
+          reject: Reject
+          succeed_confirm: Process withdrawal?
+          reject_confirm: Reject withdrawal?
+          withdraw: Withdrawals
+      pinkcoins:
+        index:
+          one: Pending withdrawals
+          all: Last 24 hours
+          empty: No data
+        show:
+          process: Accepted
+          succeed: Withdraw
+          reject: Reject
+          succeed_confirm: Process withdrawal?
+          reject_confirm: Reject withdrawal?
+          withdraw: Withdrawals
+      peercoins:
+        index:
+          one: Pending withdrawals
+          all: Last 24 hours
+          empty: No data
+        show:
+          process: Accepted
+          succeed: Withdraw
+          reject: Reject
+          succeed_confirm: Process withdrawal?
+          reject_confirm: Reject withdrawal?
+          withdraw: Withdrawals
+      potcoins:
+        index:
+          one: Pending withdrawals
+          all: Last 24 hours
+          empty: No data
+        show:
+          process: Accepted
+          succeed: Withdraw
+          reject: Reject
+          succeed_confirm: Process withdrawal?
+          reject_confirm: Reject withdrawal?
+          withdraw: Withdrawals
+      vertcoins:
+        index:
+          one: Pending withdrawals
+          all: Last 24 hours
+          empty: No data
+        show:
+          process: Accepted
+          succeed: Withdraw
+          reject: Reject
+          succeed_confirm: Process withdrawal?
+          reject_confirm: Reject withdrawal?
+          withdraw: Withdrawals
+      bitcoinpls:
+        index:
+          one: Pending withdrawals
+          all: Last 24 hours
+          empty: No data
+        show:
+          process: Accepted
+          succeed: Withdraw
+          reject: Reject
+          succeed_confirm: Process withdrawal?
+          reject_confirm: Reject withdrawal?
+          withdraw: Withdrawals
+      primecoins:
+        index:
+          one: Pending withdrawals
+          all: Last 24 hours
+          empty: No data
+        show:
+          process: Accepted
+          succeed: Withdraw
+          reject: Reject
+          succeed_confirm: Process withdrawal?
+          reject_confirm: Reject withdrawal?
+          withdraw: Withdrawals
+      radiums:
+        index:
+          one: Pending withdrawals
+          all: Last 24 hours
+          empty: No data
+        show:
+          process: Accepted
+          succeed: Withdraw
+          reject: Reject
+          succeed_confirm: Process withdrawal?
+          reject_confirm: Reject withdrawal?
+          withdraw: Withdrawals
+      riecoins:
+        index:
+          one: Pending withdrawals
+          all: Last 24 hours
+          empty: No data
+        show:
+          process: Accepted
+          succeed: Withdraw
+          reject: Reject
+          succeed_confirm: Process withdrawal?
+          reject_confirm: Reject withdrawal?
+          withdraw: Withdrawals
+      digibytes:
+        index:
+          one: Pending withdrawals
+          all: Last 24 hours
+          empty: No data
+        show:
+          process: Accepted
+          succeed: Withdraw
+          reject: Reject
+          succeed_confirm: Process withdrawal?
+          reject_confirm: Reject withdrawal?
+          withdraw: Withdrawals
+      dfscoins:
+        index:
+          one: Pending withdrawals
+          all: Last 24 hours
+          empty: No data
+        show:
+          process: Accepted
+          succeed: Withdraw
+          reject: Reject
+          succeed_confirm: Process withdrawal?
+          reject_confirm: Reject withdrawal?
+          withdraw: Withdrawals
+      bitcoindarks:
+        index:
+          one: Pending withdrawals
+          all: Last 24 hours
+          empty: No data
+        show:
+          process: Accepted
+          succeed: Withdraw
+          reject: Reject
+          succeed_confirm: Process withdrawal?
+          reject_confirm: Reject withdrawal?
+          withdraw: Withdrawals
+      viacoins:
+        index:
+          one: Pending withdrawals
+          all: Last 24 hours
+          empty: No data
+        show:
+          process: Accepted
+          succeed: Withdraw
+          reject: Reject
+          succeed_confirm: Process withdrawal?
+          reject_confirm: Reject withdrawal?
+          withdraw: Withdrawals
+  deposits/satoshi:
+    aasm_state:
+      submitted: Submitted
+      accepted: Accepted
+      checked: Checked
+      warning: Warning
+  doorkeeper:
+    scopes:
+      profile: Read your basic profile (e.g. name, email) and account balances
+      history: Read your trade history
+      trade: Submit and cancel orders
+    authorizations:
+      new:
+        title: Application Authorization
+        authorize_html: Authorize <strong class='text-info'>%{name}</strong> to use
+          your account?
+        scopes: 'This application will be able to:'
+        authorize: Authorize
+        deny: Deny
+    errors:
+      messages:
+        invalid_request: The request is missing a required parameter, includes an
+          unsupported parameter value, or is otherwise malformed.
+        invalid_redirect_uri: The redirect uri included is not valid.
+        unauthorized_client: The client is not authorized to perform this request
+          using this method.
+        access_denied: The resource owner or authorization server denied the request.
+        invalid_scope: The requested scope is invalid, unknown, or malformed.
+        server_error: The authorization server encountered an unexpected condition
+          which prevented it from fulfilling the request.
+        temporarily_unavailable: The authorization server is currently unable to handle
+          the request due to a temporary overloading or maintenance of the server.
+        credential_flow_not_configured: Resource Owner Password Credentials flow failed
+          due to Doorkeeper.configure.resource_owner_from_credentials being unconfigured.
+        resource_owner_authenticator_not_configured: Resource Owner find failed due
+          to Doorkeeper.configure.resource_owner_authenticator being unconfiged.
+        unsupported_response_type: The authorization server does not support this
+          response type.
+        invalid_client: Client authentication failed due to unknown client, no client
+          authentication included, or unsupported authentication method.
+        invalid_grant: The provided authorization grant is invalid, expired, revoked,
+          does not match the redirection URI used in the authorization request, or
+          was issued to another client.
+        unsupported_grant_type: The authorization grant type is not supported by the
+          authorization server.
+        invalid_resource_owner: The provided resource owner credentials are not valid,
+          or resource owner cannot be found
+        invalid_token:
+          revoked: The access token was revoked
+          expired: The access token expired
+          unknown: The access token is invalid
+    flash:
+      applications:
+        create:
+          notice: Application created.
+        destroy:
+          notice: Application deleted.
+        update:
+          notice: Application updated.
+      authorized_applications:
+        destroy:
+          notice: Application revoked.
+  easy_table:
+    satoshi:
+      amount: Amount
+      txid: TxId
+      created_at: Created At
+      confirmations: Confirmations
+      member_name: Member
+      state_and_actions: State/Actions
+      currency_obj_key_text: Currency
+    bank:
+      sn: SN
+      amount: Amount
+      created_at: At
+      fund_source: Fund Source
+      memo: Memo
+      member_name: Member
+      state_and_actions: State/Action
+      currency_obj_key_text: Currency
+  enumerize:
+    account_version:
+      reason:
+        fix: FIX
+        unknown: UNKNOWN
+        strike_add: TRADE PLUS
+        strike_sub: TRADE SUB
+        strike_fee: TRADE FEE
+        strike_unlock: TRADE UNLOCK
+        order_cancel: ORDER CANCEL
+        order_submit: ORDER SUBMIT
+        deposit: DEPOSIT
+        withdraw: WITHDRAW
+        withdraw_lock: WITHDRAW LOCK
+        withdraw_unlock: WITHDRAW UNLOCK
+    state:
+      done: Done
+      wait: Wait
+      cancel: Cancel
+    currency:
+      btc: BTC
+      cny: CNY
+      usd: USD
+      eth: ETH
+      bch: BCH
+      xem: XEM
+      ltc: LTC
+      dash: DASH
+      xrp: XRP
+      etc: ETC
+      ubq: UBQ
+      doge: DOGE
+      flo: FLO
+      geo: GEO
+      blk: BLK
+      bela: BELA
+      lbc: LBC
+      neos: NEOS
+      nxs: NXS
+      nmc: NMC
+      sys: SYS
+      pink: PINK
+      ppc: PPC
+      pot: POT
+      vtc: VTC
+      xbc: XBC
+      xpm: XPM
+      rads: RADS
+      ric: RIC
+      dgb: DGB
+      dfs: DFS
+      btcd: BTCD
+      via: VIA
+    order:
+      state:
+        done: DONE
+        wait: WAIT
+        cancel: CANCEL
+    deposit:
+      aasm_state:
+        submitted: Submitted
+        submitting: Submitting
+        accepted: Accepted
+        cancelled: Canceled
+        rejected: Rejected
+        checked: Checked
+        warning: Warning
+    withdraw:
+      state:
+        submitting: Submitting
+        submitted: Submitted
+        rejected: Rejected
+        accepted: Accepted
+        suspect: Suspect
+        processing: Processing
+        done: Done
+        canceled: Canceled
+    fund_source:
+      category:
+        satoshi: Bitcoin
+        bank: Bank
+    id_document:
+      id_document_type:
+        id_card: ID Card
+        passport: Passport
+        driver_license: Driver's License
+      id_bill_type:
+        bank_statement: Bank Statement
+        tax_bill: Tax Bill
+  views:
+    pagination:
+      first: "&laquo; First"
+      last: Last &raquo;
+      previous: "&lsaquo; Prev"
+      next: Next &rsaquo;
+      truncate: "..."
+
+  mailer:
+    dear_user: Dear user,
+    signature: Thanks,<br/>The Demo Exchange Team
+    please_contact: If it's not you, please <a href='mailto:%{contact_mail}'>contact us</a> ASAP.
+    footer: This is an automatically generated email, please do not reply, if you have any question, please <a href="mailto:%{contact_mail}">contact us</a>.
+  comment_mailer:
+    admin_notification:
+      subject: "[DEMO] User reply a ticket"
+      notification_content: User %{email} reply a ticket, please follow the link below to see the detail
+    user_notification:
+      subject: "[DEMO] Your ticket got a new reply"
+      notification_content: 'Your ticket got a new reply, please follow the link below to see the detail:'
+  deposit_mailer:
+    accepted:
+      subject: "[DEMO] Your deposit has been credited into your account"
+      content: Your %{currency} deposit has been credited into your account.
+  member_mailer:
+    notify_signin:
+      subject: "[DEMO] You have just signed in"
+      just_signed_in: You have just signed in.
+    google_auth_activated:
+      subject: "[DEMO] Google authenticator activated"
+      google_auth_activated: You have activated google authenticator successfully
+    google_auth_deactivated:
+      subject: "[DEMO] Google authenticator deactivated"
+      google_auth_deactivated: You have deactivated google authenticator successfully
+    sms_auth_activated:
+      subject: "[DEMO] SMS authenticator activated"
+      sms_auth_activated: You have activated SMS authenticator successfully
+    sms_auth_deactivated:
+      subject: "[DEMO] SMS authenticator deactivated"
+      sms_auth_deactivated: You have deactivated SMS authenticator successfully
+    reset_password_done:
+      subject: "[DEMO] Your password changed"
+      successful: Your password has been changed successfully.
+    phone_number_verified:
+      subject: "[DEMO] Your phone number verified"
+      verified: 'Your phone number verified: %{phone_number}'
+  system_mailer:
+    daily_stats:
+      member_stats: Member Stats
+      signup: Signup
+      activation: Activation
+      asset_stats: Assets Changes
+      trade_stats: Trades Changes
+      asset_value_change_total: Digital Assets Changes Total
+      trades_change_total: Trades Changes Total
+  ticket_mailer:
+    admin_notification:
+      subject: "[DEMO] User created a new ticket"
+      admin_notification_content: User %{email} created a new ticket, please follow the link below to see the detail
+    author_notification:
+      subject: "[DEMO] Thank you for submit ticket"
+      thanks_for_submit_ticket: Thank you for submit ticket to us, we will get back to you as soon as possible.
+  token_mailer:
+    activation:
+      subject: "[DEMO] Account Activation"
+      click_to_verify: 'Thank you for signing up on Demo, please follow this link to verify your Email:'
+      unable_to_click: Copy and open the link in your browser if you are unable to click and visit it.
+      link_expire: The link expires in 30 minutes.
+    reset_password:
+      subject: "[DEMO] Please Reset Your Password"
+      hi: Hi,
+      follow_the_link: 'Please follow this link to reset your password within 30 minutes:'
+  withdraw_mailer:
+    submitted:
+      subject: "[DEMO] Your withdraw state update"
+      content: The request of your %{currency} withdrawal has been successfully submitted, We will process it as soon as possible. Please be patient with us. Contact us if you have any questions.
+    processing:
+      subject: "[DEMO] Your withdraw state update"
+      content: The request of your %{currency} withdrawal is in process. Please be patient with us. Contact us if you have any questions.
+    done:
+      subject: "[DEMO] Your withdraw state update"
+      content: The request of your %{currency} withdrawal is complete. Please check it out. Contact us if you have any questions.
+    withdraw_state:
+      subject: "[DEMO] Your withdraw state update"
+      your_state: 'Your withdrawal state: '
+
+  'true': true
+  'false': false
+  view_on_github: View on Github
+  slogan: Cryptocurrency Exchange
+  brand: DEMO
+  tags:
+    vip: VIP
+    hero: Hero Member
+    admin: Admin
+  trade:
+    markets: Markets
+    realtime_price:
+      title: Realtime Price
+    account_balance:
+      title: Balance
+  gon:
+    ask: Ask
+    bid: Bid
+    brand: DEMO Exchange
+    notification:
+      title: DEMO Exchange
+      enabled: Notification enabled.
+      new_trade: "%{kind} order#%{id} executed at %{price} %{quote_unit} for %{volume} %{base_unit}。"
+  back: Back
+  invalid_password: Invalid password
+  all: All
+  date:
+    formats:
+      date-short: "%m-%d"
+      short: "%m-%d %H:%M"
+      default: "%m/%d/%Y %H:%M"
+  time:
+    formats:
+      date-short: "%m-%d"
+      short: "%m-%d %H:%M"
+      default: "%m/%d/%Y %H:%M"
+  sms:
+    verification_code: 'Your phone number verification code is: %{code}.'
+    password_changed: Hi %{email}, you password has been changed successfully.
+    deposit_done: Hi %{email}, the request of your deposit is complete.
+    withdraw_done: Hi %{email}, the request of your withdrawal is complete.
+  header:
+    home: Home
+    dashboard: Dashboard
+    admin: Admin Panel
+    market: Trade
+    settings: Profile
+    signin: Sign In
+    signout: Exit
+    signup: Sign Up
+    login_via_weibo: Login via Weibo
+    funds: Funds
+    getstart: Get Start
+    assets: Solvency
+    history: History
+    order_history: Order History
+    trade_history: Trade History
+    account_history: Account History
+    my_profile: My Profile
+    tickets: Tickets
+    account_balance: Total Assets
+    back: Back
+    total: Total
+    deposit: Deposit
+    withdraw: Withdraw
+  admin_header:
+    deposits: Deposits
+    withdraws: Withdraws
+    statistics: Data Statistics
+    id_documents: Verify Account
+  footer:
+    about: About
+    privacy: Privacy
+    contact: Contact Us
+    price: Price
+    liability_proof: liability proof
+  actions:
+    go: Go
+    submit: Submit
+    deposit: Deposit
+    select: Please Select
+    unlock: Unlock
+    confirm: Confirm
+    back: Back
+    block: view in block
+    destroy: Delete
+    destroy_confirm: Are you sure you want to delete this?
+    detail: Detail
+    publish: Publish
+    edit: Edit
+    preview: Preview
+    close: Close
+    cancel: Cancel
+    view: View
+    member: Member
+    transact: Transact
+    reject: Reject
+    clipboard:
+      click: Click to copy
+      done: Copied
+  chart:
+    open: Open
+    high: High
+    low: Low
+    close: Close
+    price: Price
+    volume: Volume
+    candlestick: 'Candlestick'
+    line: 'Line'
+    minute: m
+    hour: Hour
+    day: Day
+    week: Week
+    month: Month
+    year: Year
+    zoom: Zoom
+    ask: ASK
+    bid: BID
+    depth: Depth
+    depth_title: Market Depth
+  'yes': 'Yes'
+  'no': 'No'
+  simple_captcha:
+    label: Refresh page to get new captcha.
+    placeholder: type characters in image
+  helpers:
+    action:
+      view: View
+      customer_service: contact us
+    submit:
+      order_ask:
+        create: ASK
+      order_bid:
+        create: BID
+      document:
+        create: Create Document
+        update: Update Document
+        destroy: Destroy Document
+      member:
+        update: Open Account
+      identity:
+        save: Sign in
+        create: Sign up
+        destroy: Sign out
+        verify: Verify
+        update: Change
+      two_factor:
+        create: Verify
+        update: Activiate
+      reset_two_factor:
+        create: Reset Two-Factor Authentication
+      reset_password:
+        update: Reset Sign in Password
+        create: Reset Sign in Password
+      fund_source:
+        create: Save
+      deposit:
+        create: Deposit
+      id_document:
+        create: Submit
+      withdraw:
+        create: Submit
+      ticket:
+        create: Submit
+  activations:
+    new:
+      notice: An email has been sent to your mailbox, please check it for verification as soon as possible. If you do not received it , please click "send it again" button.
+      verified: Your email adress has been verified successfully.
+      login_required: login required!
+      tip: Activation link was sent to %{email}
+      spam: Please check your spam folder for the activation link.
+    edit:
+      notice: Account activated successfully! Please sign in below.
+      alert: Activation link is expired or invalid.
+  authentications:
+    emails:
+      new:
+        title: Setup Email
+        setup_email: Please setup your email address.
+        warning: Please check your inbox after saving the email address.
+        email_address: Email Address
+        save: Save
+    weibo:
+      destroy:
+        last_auth_alert: You couldn't delete the last authentication
+        unbind_success: Unbind from the Weibo
+    identities:
+      new:
+        title: Setup The Password
+        save: Save
+      create:
+        success: Setup password successfully
+  forum:
+    index:
+      notice:
+        display_name: Please set your display name for the forum.
+  identities:
+    new:
+      title: SIGN UP
+      signin: Sign In
+      password: Please enter a password at least 6 characters and it's better to contain
+        uppercase and lowercase letters and numbers.
+    update:
+      auth-error: The original password you entered is incorrect, please re-enter.
+      auth-same: The new password you entered is the same as the old password, please
+        re-enter.
+      notice: Account password updated successfully.
+  layouts:
+    admin:
+      menus:
+        sections:
+          members: Members
+          deposits: Deposits
+          sites_statistics: Analytics
+          operating: Operations
+        items:
+          operating:
+            proofs: Proof
+            deposits: Deposits
+            documents: Documents
+            withdraws: Withdraws
+            tickets: Tickets
+          deposits:
+            currency: Deposit
+    application:
+      close: Close
+    meta:
+      page_title: Demo Exchange - Cryptocurrency Exchange
+      page_description: Demo Exchange - Cryptocurrency Exchange
+      page_keywords: Demo,Exchange,Cryptocurrency
+  members:
+    edit:
+      name: Please fill out the application.
+  reset_passwords:
+    create:
+      success: E-mail to reset your password with a introduction has been sent to your mailbox. Failure to receive e-mail , go to "junk mail " firstly,or send the request again.
+    edit:
+      password: Please enter a password at least 6 characters and it's better to contain uppercase and lowercase letters and numbers.
+      invalid: Invalid request
+      submit: Reset Login Password
+      alert: Invalid reset password link.
+    update:
+      success: Login password has been reset, please keep your new password.
+      invalid: Invalid request
+  sessions:
+    new:
+      reset_password: Forgot Password?
+    new_with_two_factor_auth:
+      title: 2 Step Verification
+      reset_two_factor: Lost 2-step-verification device
+    create_with_two_factor_auth:
+      session_expired: Session expired. Try again.
+    create:
+      error: You account has been disabled, contact admin if you have any problem.
+    failure:
+      account_locked: Too many failed login attempts. To ensure the safety of your
+        account, we have locked your account. To unlock, reset your password by clicking
+        on "Forgot Password".
+      error: Wrong customer ID or password,please try again.
+  shared:
+    admin:
+      member:
+        member_info: Member Info
+        deactive_sms_two_factor: SMS TFA
+        deactive_app_two_factor: Google TFA
+        inactive: Inactive
+        deactive: Deactive
+        are_you_sure: Are you sure deactive two factor authentication?
+      account:
+        account_info: Account Info
+        payment_address: Deposit Address
+    alert:
+      modern: In order not to affect trading experience, please use a more popular
+        browser transaction, we recommend you <a target='_blank' href='https://www.google.com/#q=google+chrome'>Google
+        Chrome</a>。
+      pusher_unavailable: The network connection is temporarily unavailable... <a
+        href='#' class='alert-link'>Please refresh</a>.
+    header:
+      balance: Balance
+    header_account_balance:
+      locked: Locked
+    market:
+      ticker:
+        ask_price: Ask
+        bid_price: Bid
+        high_price: High
+        low_price: Low
+        volume: Volume
+        latest_price: Last
+    frame:
+      deposit_now: Deposit Now
+  two_factors:
+    index:
+      verify: Verify
+    update:
+      alert: Two factor verification code error, please re-enter.
+    auth:
+      please_active_two_factor: Please set mobile number or google authenticator first.
+      submit: Submit
+      otp_placeholder: 6-digit password
+      google_app: Google Authenticator
+      sms: SMS Verification Messages
+      send_code: Send Code
+      send_code_alt: Resend in COUNT seconds
+      hints:
+        app: Google Authenticator will re-generate a new password every thirty seconds,
+          please input timely.
+        sms: We'll send a text message to you phone with verify code.
+  verify:
+    google_auths:
+      edit:
+        submit: Disable
+        warning: 'Tip: If you have lost your Two-Factor Authentication by some reason
+          and can''t login your Demo account, please contact our online customer
+          service.'
+      show:
+        step-1: Step 1
+        step-2: Step 2
+        step-3: Step 3
+        or: OR
+        download-app: Install Google Authenticator app on your smart phone and open
+          it.
+        guide-link: "<a href='https://support.google.com/accounts/answer/1066447'
+          target='_blank'>Installation Instructions</a>。"
+        scan-qr-code: Scan the following QR code with Google Authenticator APP，or
+          add cipher text to the validator manually.
+        enter-passcode: Fill in the dynamic password  displayed by your phone to activate Two-Factor Authentication.
+        submit: Enable
+        ios: Iphone iOS
+        android: Android
+        blackbery: Blackberry
+        notice:
+          already_activated: The Google Authenticator has already been set.
+          not_activated_yet: The Google Authenticator hasn't been set yet.
+      update:
+        alert: Password for authentication is incorrect, please re-enter.
+        notice: Two-Factor Authentication has been successfully Enabled.
+        sms_two_factor_error: SMS Verification code is incorrect, please re-enter.
+      destroy:
+        alert: Password for authentication is incorrect, please re-enter.
+        notice: Two-Factor Authentication has been successfully Disabled.
+    sms_auths:
+      show:
+        title: Verify Phone Number
+        description: Providing a phone number will make your account more secure. you
+          can quickly reset your password and your account operations will be notified.
+        warning: it will not be able to retrieve your account's password if not set
+          the phone number.
+        phone_number: Phone number
+        send_code: Send Code
+        send_code_alt: Resend in COUNT seconds
+        input_otp: Enter the 6-digit code we sent to you
+        submit: Save
+        notice:
+          send_code_success: Send verify code success
+          otp_success: Verify Code success.
+          already_activated: You phone number has been activated.
+        alert:
+          phone_number_error: phone number error
+  withdraw_channel:
+    bank:
+      key: Bank Transfer
+      title: Bank Transfer
+      intro: Bank transfer deposits, Recommend for large recharge
+      latency: 30 minutes
+      transfer: Manual
+      go: Withdraw
+    satoshi:
+      key: Bitcoin
+      title: Bitcoin Withdraw
+      intro: Withdraw bitcoin to your own wallet
+      latency: 30 minutes
+      transfer: Manual
+      go: Withdraw
+    ether:
+      key: Ethereum
+      title: Ethereum Withdraw
+      intro: Withdraw ethereum to your own wallet
+      latency: 30 minutes
+      transfer: Manual
+      go: Withdraw
+    litecoin:
+      key: Litecoin
+      title: Litecoin Withdraw
+      intro: Withdraw litecoin to your own wallet
+      latency: 30 minutes
+      transfer: Manual
+      go: Withdraw
+    bitcoincash:
+      key: Bitcoincash
+      title: Bitcoincash Withdraw
+      intro: Withdraw bitcoincash to your own wallet
+      latency: 30 minutes
+      transfer: Manual
+      go: Withdraw
+    dashcoin:
+      key: Dashcoin
+      title: Dashcoin Withdraw
+      intro: Withdraw dashcoin to your own wallet
+      latency: 30 minutes
+      transfer: Manual
+      go: Withdraw
+    ripple:
+      key: Ripple
+      title: Ripple Withdraw
+      intro: Withdraw ripple to your own wallet
+      latency: 30 minutes
+      transfer: Manual
+      go: Withdraw
+    etherclassic:
+      key: Etherclassic
+      title: Ethereumclassic Withdraw
+      intro: Withdraw ethereumclassic to your own wallet
+      latency: 30 minutes
+      transfer: Manual
+      go: Withdraw
+    ubiq:
+      key: Ubiq
+      title: Ubiq Withdraw
+      intro: Withdraw ubiq to your own wallet
+      latency: 30 minutes
+      transfer: Manual
+      go: Withdraw
+    nem:
+      key: NEM
+      title: NEM Withdraw
+      intro: Withdraw XEM to your own wallet
+      latency: 30 minutes
+      transfer: Manual
+      go: Withdraw
+    dogecoin:
+      key: Dogecoin
+      title: Dogecoin Withdraw
+      intro: Withdraw dogecoin to your own wallet
+      latency: 30 minutes
+      transfer: Manual
+      go: Withdraw
+    florincoin:
+      key: Florincoin
+      title: Florincoin Withdraw
+      intro: Withdraw florincoin to your own wallet
+      latency: 30 minutes
+      transfer: Manual
+      go: Withdraw
+    geocoin:
+      key: Geocoin
+      title: Geocoin Withdraw
+      intro: Withdraw geocoin to your own wallet
+      latency: 30 minutes
+      transfer: Manual
+      go: Withdraw
+    blackcoin:
+      key: Blackcoin
+      title: Blackcoin Withdraw
+      intro: Withdraw blackcoin to your own wallet
+      latency: 30 minutes
+      transfer: Manual
+      go: Withdraw
+    belacoin:
+      key: Belacoin
+      title: Belacoin Withdraw
+      intro: Withdraw belacoin to your own wallet
+      latency: 30 minutes
+      transfer: Manual
+      go: Withdraw
+    lbrycrd:
+      key: Lbrycrd
+      title: Lbrycrd Withdraw
+      intro: Withdraw lbrycrd to your own wallet
+      latency: 30 minutes
+      transfer: Manual
+      go: Withdraw
+    neoscoin:
+      key: Neoscoin
+      title: Neoscoin Withdraw
+      intro: Withdraw neoscoin to your own wallet
+      latency: 30 minutes
+      transfer: Manual
+      go: Withdraw
+    nexuscoin:
+      key: Nexuscoin
+      title: Nexus Withdraw
+      intro: Withdraw nexus to your own wallet
+      latency: 30 minutes
+      transfer: Manual
+      go: Withdraw
+    namecoin:
+      key: Namecoin
+      title: Namecoin Withdraw
+      intro: Withdraw namecoin to your own wallet
+      latency: 30 minutes
+      transfer: Manual
+      go: Withdraw
+    syscoin:
+      key: Syscoin
+      title: Syscoin Withdraw
+      intro: Withdraw syscoin to your own wallet
+      latency: 30 minutes
+      transfer: Manual
+      go: Withdraw
+    pinkcoin:
+      key: Pinkcoin
+      title: Pinkcoin Withdraw
+      intro: Withdraw pinkcoin to your own wallet
+      latency: 30 minutes
+      transfer: Manual
+      go: Withdraw
+    peercoin:
+      key: Peercoin
+      title: Peercoin Withdraw
+      intro: Withdraw peercoin to your own wallet
+      latency: 30 minutes
+      transfer: Manual
+      go: Withdraw
+    potcoin:
+      key: Potcoin
+      title: Potcoin Withdraw
+      intro: Withdraw potcoin to your own wallet
+      latency: 30 minutes
+      transfer: Manual
+      go: Withdraw
+    vertcoin:
+      key: Vertcoin
+      title: Vertcoin Withdraw
+      intro: Withdraw vertcoin to your own wallet
+      latency: 30 minutes
+      transfer: Manual
+      go: Withdraw
+    bitcoinpl:
+      key: Bitcoinpl
+      title: Bitcoinplus Withdraw
+      intro: Withdraw bitcoinplus to your own wallet
+      latency: 30 minutes
+      transfer: Manual
+      go: Withdraw
+    primecoin:
+      key: Primecoin
+      title: Primecoin Withdraw
+      intro: Withdraw primecoin to your own wallet
+      latency: 30 minutes
+      transfer: Manual
+      go: Withdraw
+    radium:
+      key: Radium
+      title: Radium Withdraw
+      intro: Withdraw radium to your own wallet
+      latency: 30 minutes
+      transfer: Manual
+      go: Withdraw
+    riecoin:
+      key: Riecoin
+      title: Riecoin Withdraw
+      intro: Withdraw riecoin to your own wallet
+      latency: 30 minutes
+      transfer: Manual
+      go: Withdraw
+    digibyte:
+      key: Digibyte
+      title: Digibyte Withdraw
+      intro: Withdraw digibyte to your own wallet
+      latency: 30 minutes
+      transfer: Manual
+      go: Withdraw
+    dfscoin:
+      key: Dfscoin
+      title: Dfscoin Withdraw
+      intro: Withdraw dfscoin to your own wallet
+      latency: 30 minutes
+      transfer: Manual
+      go: Withdraw
+    bitcoindark:
+      key: Bitcoindark
+      title: Bitcoindark Withdraw
+      intro: Withdraw bitcoindark to your own wallet
+      latency: 30 minutes
+      transfer: Manual
+      go: Withdraw
+    viacoin:
+      key: Viacoin
+      title: Viacoin Withdraw
+      intro: Withdraw viacoin to your own wallet
+      latency: 30 minutes
+      transfer: Manual
+      go: Withdraw
+  withdraws:
+    invalid_address: is not valid. You can not withdraw to this address.
+  withdraws/bank:
+    aasm_state:
+      submitting: Submitting
+      submitted: Submitted
+      rejected: Rejected
+      accepted: Accepted
+      suspect: Suspect
+      processing: Processing
+      done: Done
+      almost_done: Almost Done
+      canceled: Cancelled
+      failed: Failed
+  withdraws/satoshi:
+    aasm_state:
+      submitting: Submitting
+      submitted: Submitted
+      rejected: Rejected
+      accepted: Accepted
+      suspect: Suspect
+      processing: processing
+      done: Done
+      almost_done: Almost Done
+      canceled: Cancelled
+      failed: Failed

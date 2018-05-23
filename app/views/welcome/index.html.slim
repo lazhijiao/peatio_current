@@ -1,0 +1,155 @@
+.spn_hol
+  .spinner
+    .bounce1
+    .bounce2
+    .bounce3
+section#HOME.header.parallax.home-parallax.page
+  h2
+  .section_overlay
+    nav.navbar.navbar-default.navbar-fixed-top role="navigation"
+      .container
+        .navbar-header
+          button.navbar-toggle.collapsed type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+            span.sr-only
+              | Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand href="#"
+            img src='#{image_path 'logo.png'}' alt="Title"
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              a href="#HOME"
+                | HOME
+            li
+              a href="#HOWTO"
+                | HOW TO
+            li
+              a href="#TRADE"
+                | TRADE
+            - unless current_user
+              li
+                a href="#{signup_path}"
+                  | SIGNUP
+              li
+                a href="#{signin_path}"
+                  | SIGNIN
+            - else
+              li
+                a href="#{funds_path}"
+                  | FUNDS
+              li
+                a href="#{settings_path}"
+                  | SETTINGS
+            li
+              a href="#CONTACT"
+                | ABOUT US
+    .container.home-container
+      .row
+        .col-md-24
+          .logo.text-center
+            img width="602.25" height="202.25" src='#{image_path 'logo.png'}' alt=""
+      .row
+        .col-md-24.col-sm-16
+          .home_text
+            h1
+              | Welcome to Demo Exchange!
+            p
+              | Using the Demo Exchange platform, you can exchange cryptocurrencies to Brazilian Real directly with no central organization involved. Demo Exchange allows members to buy and sell cryptocurrencies directly to and from each other.
+            - unless current_user
+              .signup-btn
+                a.btn.home-btn.wow.fadeInLeft href="#{signup_path}"
+                  | Signup
+                a.tuor.btn.wow.fadeInRight href="#{signin_path}"
+                  | Signin
+            - else
+              .signup-btn
+                a.btn.home-btn.wow.fadeInLeft href="#{funds_path}"
+                  | Funds
+                a.btn.home-btn.wow.fadeInRight href="#{settings_path}"
+                  | Settings
+
+section#HOWTO.howto.page
+  .container
+    .row
+      .col-md-20.col-md-offset-2
+        .section_title.wow.fadeIn data-wow-duration="1s"
+          h2
+            | How To Work
+          p
+            | You can also profiting from downward movements in coins price by selling them at a higher price and buy them again at a lower price and pocketing the price difference. If you wants to profit from short selling, you have to own Coin or USD in the first place. Buy coins from Demo Exchange with USD first.
+  .howto_inner
+    .container
+      .row
+        .col-md-8.left_no_padding.wow.fadeInLeft data-wow-duration="1s"
+          .howto_image
+            img.wow.bounceIn data-wow-duration="1s" src='#{image_path 'howto.png'}' alt=""
+        .col-md-14.right_no_padding.wow.fadeInRight data-wow-duration="1s"
+          .left_single_howto
+            h3
+              | Step 1 - Deposit USD and cryptocurrencies first
+            p
+              | Signup and activate your account to get your coin deposit address.
+            p
+              | Once Coin sent to coin address you will see fully confirmed and available for trade. It can take around 30 minutes or more time depending on Coin network so do not worry and wait quietly.
+          .left_single_howto
+            h3
+              | Step 2 - Buy Coins from Exchange
+            p
+              | Once you see balance in your coin wallet visit Coin fund page.
+            p
+              | Simply Fill in buy coin form for your desired price and click "Buy Coin" Button.
+#TRADE.trades
+  .container
+    .row.wow.fadeInLeftBig data-wow-duration="1s"
+      .col-md-18
+        p
+          | Have you never done trade? Try it by pressing this button.
+      .col-md-6
+        a.btn.btn-primary.btn-action href="#{market_path(current_market)}" role="button"
+          | Trade Now
+section#CONTACT.contact.page
+  .container
+    .row
+      .col-md-20.col-md-offset-2
+        .section_title
+          h2
+            | about us
+          p
+            | The Demo Team with best skills and experiences
+  .container
+    .row
+      .col-md-16.col-md-offset-4
+        .contact_screen.text-center.wow.fadeInUp data-wow-duration="1s"
+          img src='#{image_path 'footer.png'}' alt=""
+section.copyright
+  .container
+    .row
+      .col-md-6
+        .copy_right_text
+          p
+            a href="https://demo.exchange"
+              | Terms of Service
+          p
+            a href="https://demo.exchange"
+              | Privacy Policy
+          p
+            a href="https://demo.exchange"
+              | Fee Schedule
+      .col-md-12
+        .copy_right_text
+          p
+            a href="mailto:support@demo.exchange"
+              i.fa.fa-envelope
+              | &nbsp&nbsp&nbsp
+              | support@demo.exchange
+          p
+            a href="#"
+              i.fa.fa-map-marker
+              | &nbsp&nbsp&nbsp
+              | Demo Exchange
+      .col-md-6
+        .scroll_top
+          a href="#HOME"
+            i.fa.fa-angle-double-up

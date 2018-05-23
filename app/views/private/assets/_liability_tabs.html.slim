@@ -1,0 +1,39 @@
+.tabbable
+  ul.nav.nav-tabs
+    li.active: a.btc-proof href="#btc-proof" data-toggle="tab" == t('.verify-btc')
+    li:        a.vtc-proof href="#eth-proof" data-toggle="tab" == t('.verify-eth')
+    li:        a.ltc-proof href="#ltc-proof" data-toggle="tab" == t('.verify-ltc')
+    li:        a.usd-proof href="#usd-proof" data-toggle="tab" == t('.verify-usd')
+
+  .tab-content
+    #usd-proof.tab-pane.active: .trade-wrapper
+      .assets
+        span.title = t('.usd-assets-total')
+        span.currency
+          == t("currency.icon.usd")
+          = @usd_proof.sum
+      = render 'liability_data', account: @usd_account, proof: @usd_proof
+
+    #btc-proof.tab-pane.active: .trade-wrapper
+      .assets
+        span.title = t('.btc-assets-total')
+        span.currency
+          == t("currency.icon.btc")
+          = @btc_proof.sum
+      = render 'liability_data', account: @btc_account, proof: @btc_proof
+
+    #eth-proof.tab-pane:        .trade-wrapper
+      .assets
+        span.title = t('.eth-assets-total')
+        span.currency
+          == t("currency.icon.eth")
+          = @eth_proof.sum
+      = render 'liability_data', account: @eth_account, proof: @eth_proof
+
+    #ltc-proof.tab-pane: .trade-wrapper
+      .assets
+        span.title = t('.ltc-assets-total')
+        span.currency
+          == t("currency.icon.ltc")
+          = @ltc_proof.sum
+      = render 'liability_data', account: @ltc_account, proof: @ltc_proof
