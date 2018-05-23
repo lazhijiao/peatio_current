@@ -1,4 +1,3 @@
-测试走一波
 An open-source crypto currency exchange
 (UPGRADING NOW... NEW REPOSITORY WILL BE SOON!!)
 =====================================
