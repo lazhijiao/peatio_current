@@ -53,7 +53,7 @@ Version: 1.0
         bottom: -20px;
         width: 60px;
         height: 1px;
-        background-color: #f39c12;
+        background-color: #0196fe;
         left: 50%;
         margin-left: -30px;
       }
@@ -141,10 +141,10 @@ Version: 1.0
 
   .navbar-default .navbar-nav > .active > a {
     background: transparent;
-    color: #f39c12;
+    color: #fff;
     &:hover, &:focus {
       background: transparent;
-      color: #f39c12;
+      color: #0196fe;
     }
   }
 
@@ -196,8 +196,8 @@ Version: 1.0
 
   .home-btn {
     background: transparent;
-    border-color: #f39c12;
-    color: #f39c12;
+    border-color: #fff;
+    color: #fff;
     margin-right: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -212,8 +212,8 @@ Version: 1.0
     transition: all 1s;
     &:focus, &:active, &:visited {
       background: transparent;
-      border-color: #f39c12;
-      color: #f39c12;
+      border-color: #fff;
+      color: #fff;
       padding-top: 10px;
       padding-bottom: 10px;
       padding-left: 30px;
@@ -227,7 +227,7 @@ Version: 1.0
       transition: all 1s;
     }
     &:hover {
-      background-color: #f39c12;
+      background-color: #0196fe;
       color: #fff;
     }
   }
@@ -359,9 +359,9 @@ Version: 1.0
   }
 
   .btn-action {
-    background: #f39c12;
-    border: 1px solid #f39c12;
-    color: #fff;
+    background: #fff;
+    border: 1px solid #fff;
+    color: #0196fe;
     border-radius: 3px;
     padding: 15px 35px;
     text-transform: uppercase;
@@ -382,8 +382,9 @@ Version: 1.0
       transition: all 1s;
     }
     &:hover {
-      background: #FF6B80;
-      border-color: #FF6B80;
+      background: #0196fe;
+      border-color: #0196fe;
+      color: #fff;
     }
   }
 
@@ -434,7 +435,7 @@ Version: 1.0
       font-size: 15px;
       a {
         text-decoration: none;
-        color: #f39c12;
+        color: #fff;
       }
       span {
         font-weight: 300;
@@ -445,7 +446,7 @@ Version: 1.0
   .scroll_top {
     text-align: right;
     a {
-      background: #f39c12;
+      background: #0196fe;
       padding: 25px;
       i {
         color: #fff;
